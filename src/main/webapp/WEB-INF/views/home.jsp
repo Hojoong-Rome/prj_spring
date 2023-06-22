@@ -79,7 +79,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-          <h2>I'm <span>Lee Ho Joong, </span>Full-Stack Developer from Go-Yang City</h2>
+          <h2>I'm <span>Lee Ho Joong, </span>Web Developer from Goyang City</h2>
           <p>Blanditiis praesentium aliquam illum tempore incidunt debitis dolorem magni est deserunt sed qui libero. Qui voluptas amet.</p>
           <a href="contact.html" class="btn-get-started">Available for hire</a>
         </div>
