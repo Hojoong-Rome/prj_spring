@@ -60,6 +60,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">projects</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="adminlogin">Admin</a></li>
         </ul>
       </nav><!-- .navbar -->
 

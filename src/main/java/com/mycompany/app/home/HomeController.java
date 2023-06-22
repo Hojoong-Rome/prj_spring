@@ -1,6 +1,7 @@
 package com.mycompany.app.home;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,4 +50,21 @@ public class HomeController {
 		
 		return mav;
 	}
+	
+	
+	@RequestMapping(value="/adminlogin")
+	public String adminlogin() {
+		return "app/adminlogin/login";
+	}
+	
+	@RequestMapping(value="/adminpage")
+	public String adminpage() {
+		return "app/admin/public/index";
+	}
+	
+	/*
+	 * @GetMapping("/adminpage") public String redirect() { return
+	 * "app/adminlogin/login"; }
+	 * 
+	 */
 }
