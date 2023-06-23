@@ -6,6 +6,12 @@
 <!DOCTYPE HTML>
 <head>
 	<title>Code List</title>
+	<style type="text/css">
+		.good{
+			width: 50px;
+			border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
 	<c:choose>
@@ -16,9 +22,9 @@
 		</c:when>
 		<c:otherwise><%--${list}: 자바에서 넘겨준 객체 이름 --%><!-- var="list" jstl 블럭에서 사용할 변수 이름-->
 			<c:forEach items="${list}" var="list" varStatus="status">
-				<c:out value="${list.seq}"></c:out>
-				<c:out value="${list.name}"></c:out>
-				<c:out value="${list.codeGroup_seq}"></c:out><br>
+					<div class="good"><c:out value="${list.seq}"></c:out></div>
+					<div class="good"><c:out value="${list.name}"></c:out></div>
+					<div class="good"><c:out value="${list.codeGroup_seq}"></c:out></div><br>
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>	  	
