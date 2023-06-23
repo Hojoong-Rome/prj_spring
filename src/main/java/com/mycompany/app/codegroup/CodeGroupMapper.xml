@@ -7,7 +7,11 @@
     <resultMap id="resultMapObj" type="com.mycompany.app.codegroup.CodeGroup"></resultMap>
     
     <select id="selectList" resultMap="resultMapObj">
-    	SELECT * 
+    	SELECT
+    	
+    	seq,
+    	name
+    	
     	FROM 
     		codeGroup
     </select>
