@@ -16,9 +16,9 @@ public class CodeGroupController {
 	@RequestMapping("/codeGroupList")
 	public String codeGroupList(Model model) {
 		
-		List<CodeGroup> list = service.selectList();
+		//List<CodeGroup> list = service.selectList();
 		
-		model.addAttribute("list", list);
+		model.addAttribute("list", service.selectList());
 		
 		return "codeGroupList";
 	}

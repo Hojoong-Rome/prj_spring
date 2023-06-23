@@ -5,7 +5,7 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE HTML>
 <head>
-<title>CodeGroupList</title>
+	<title>CodeGroupList</title>
 </head>
 <body>
 	<c:choose>
