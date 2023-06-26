@@ -26,7 +26,6 @@
     </div>
 	<c:choose>
 		<c:when test="${fn:length(list) eq 0}">
-		ㅁㄴㅇㅁㄴㅇㄹ
 		</c:when>
 		<c:otherwise><%--${list}: 자바에서 넘겨준 객체 이름 --%><!-- var="list" jstl 블럭에서 사용할 변수 이름-->
 			<c:forEach items="${list}" var="list" varStatus="status">
