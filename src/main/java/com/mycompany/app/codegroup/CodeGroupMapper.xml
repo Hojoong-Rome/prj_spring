@@ -13,13 +13,21 @@
     
     
     <select id="selectList" resultMap="resultMapObj">
-    	SELECT
-    	
-    	seq,
-    	name
+    	SELECT *
     	
     	FROM 
     		codeGroup
+    	WHERE
+    		name LIKE CONCAT('%', #{shKeyword}, '%')
+    </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+    	SELECT *
+    	
+    	FROM 
+    		codeGroup
+    	WHERE
+    		seq = #{seq}
     </select>
 
 </mapper>    

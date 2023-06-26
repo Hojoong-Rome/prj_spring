@@ -12,7 +12,14 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 	CodeGroupDao dao;
 	
 	@Override
-	public List<CodeGroup> selectList(){return dao.selectList();}
+	public List<CodeGroup> selectList(CodeGroupVo vo){return dao.selectList(vo);}
+
+	@Override
+	public CodeGroup selectOne(CodeGroupVo vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 	
 }

@@ -8,14 +8,11 @@
     
     
     <select id="selectList" resultMap="resultMapObj">
-    	SELECT
-    	
-    	seq,
-    	name,
-    	codeGroup_seq
-    	
+    	SELECT *
     	FROM 
     		code
+    	WHERE
+    		ifcgName LIKE CONCAT('%', #{shKeyword}, '%')
     </select>
 
 </mapper>    
