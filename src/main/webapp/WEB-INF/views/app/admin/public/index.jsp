@@ -26,6 +26,26 @@
     ></script>
     <script src="../../../../resources/adminsource/assets/js/charts-lines.js" defer></script>
     <script src="../../../../resources/adminsource/assets/js/charts-pie.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      #typeSelect{
+        width: 120px;
+        height: 30px;
+        font-size: 12px;
+      }
+      #searchForm{
+        width: 120px;
+        height: 30px;
+      }
+      #submitBtn{
+        width: 60px;
+        height: 30px;
+        border: 1px solid black;
+        padding: 1px 1px 1px 1px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+    </style>
   </head>
   <body>
     <div
@@ -1360,10 +1380,23 @@
               <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
-                <span class="flex items-center col-span-3">
+                <span class="flex items-center col-span-2">
                   Showing 21-30 of 100
                 </span>
-                <span class="col-span-2"></span>
+                <div class="col-span-3">
+                  <form class="flex items-center ">
+                    <select class="form-select" aria-label="typeSelect" id="typeSelect">
+                        <option value="1">Title</option>
+                        <option value="2">Name</option>
+                        <option value="3">Seq</option>
+                    </select>
+                    <div class="mb-3">
+                        <label for="searchForm" class="form-label"></label>
+                        <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                  </form>
+                </div>
                 <!-- Pagination -->
                 <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
@@ -1523,5 +1556,6 @@
         </main>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>
