@@ -1,5 +1,7 @@
 package com.mycompany.app.code;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +15,9 @@ public class CodeController {
 	
 	@RequestMapping("/codeList")
 	public String CodeList(Model model) {
-		model.addAttribute("list", service.selectList());
+		
+		List<Code> list = service.selectList();
+		model.addAttribute("list", list);
 		
 		return "codeList";
 	}
