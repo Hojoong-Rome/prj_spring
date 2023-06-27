@@ -34,21 +34,22 @@
     	INSERT INTO `codeGroup`(
     		seq
 			, name
+			, delNy
 		) VALUES (
 			#{seq}
 			, #{name}
+			, 1
 		)
     </insert>
     
     <delete id="delete">
-    	DELETE
+    	UPDATE codeGroup
     	
-    	FROM
-    		codeGroup
+    	SET 
+    		delNy = 0
     	WHERE
     		seq = #{seq}
     		AND name = #{name}
-    	
     </delete>
 
 </mapper>    

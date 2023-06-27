@@ -13,9 +13,9 @@
 		<div class="input-group">
 			<input type="text" name="seq" value="<c:out value='${item.seq }'></c:out>" id="seq" class="form-control bg-light border-0 small" aria-label="seqInput">
 			<input type="text" name="name" value="<c:out value='${item.name }'></c:out>" id="name" class="form-control bg-light border-0 small" aria-label="nameInput">
-			<button type="button" id="btnUpdt">Save</button>
-			<button type="button" id="btnInsert">Insert</button>
-			<button type="button" id="btnDel">Delete</button>
+			<button type="button" id="btnUpdt" class="btn btn-primary">Save</button>
+			<button type="button" id="btnInsert" class="btn btn-primary">Insert</button>
+			<button type="button" id="btnDel" class="btn btn-primary">Uelete</button>
 		</div>
 	</form>
 	
