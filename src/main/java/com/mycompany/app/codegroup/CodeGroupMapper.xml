@@ -21,13 +21,34 @@
     		name LIKE CONCAT('%', #{shKeyword}, '%')
     </select>
     
-    <select id="selectOne" resultMap="resultMapObj">
-    	SELECT *
+    <update id="update">
+    	UPDATE codeGroup
     	
-    	FROM 
+    	SET 
+    		name = #{name}
+    	WHERE
+    		seq = #{seq}
+    </update>
+    
+    <insert id="insert">
+    	INSERT INTO `codeGroup`(
+    		seq
+			, name
+		) VALUES (
+			#{seq}
+			, #{name}
+		)
+    </insert>
+    
+    <delete id="delete">
+    	DELETE
+    	
+    	FROM
     		codeGroup
     	WHERE
     		seq = #{seq}
-    </select>
+    		AND name = #{name}
+    	
+    </delete>
 
 </mapper>    

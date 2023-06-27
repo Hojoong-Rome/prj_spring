@@ -9,21 +9,37 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-	<form name="formList">
+	<form name="form" method="post">
 		<div class="input-group">
-			<input type="text" name="item" value="<c:out value='${item.seq }'></c:out>" class="form-control bg-light border-0 small" aria-label="search">
-			<input type="text" name="item" value="<c:out value='${item.name }'></c:out>" class="form-control bg-light border-0 small" aria-label="search">
-			<button type="button" id="btn">button</button>
+			<input type="text" name="seq" value="<c:out value='${item.seq }'></c:out>" id="seq" class="form-control bg-light border-0 small" aria-label="seqInput">
+			<input type="text" name="name" value="<c:out value='${item.name }'></c:out>" id="name" class="form-control bg-light border-0 small" aria-label="nameInput">
+			<button type="button" id="btnUpdt">Save</button>
+			<button type="button" id="btnInsert">Insert</button>
+			<button type="button" id="btnDel">Delete</button>
 		</div>
 	</form>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		$("#btn").on("click", function(){
+		$("#btnUpdt").on("click", function(){
 			
-			$("form[name=formList]").attr("action", "get");
-			$("form[name=formList]").attr("action", "/codeGroupList").submit();
+			// $("form[name=formList]").attr("action", "get");
+			$("form[name=form]").attr("action", "/codeGroupUpdt").submit();
+			
+		});	
+		
+		$("#btnInsert").on("click", function(){
+			
+			// $("form[name=formList]").attr("action", "get");
+			$("form[name=form]").attr("action", "/codeGroupInsert").submit();
+			
+		});	
+		
+		$("#btnDel").on("click", function(){
+			
+			// $("form[name=formList]").attr("action", "get");
+			$("form[name=form]").attr("action", "/codeGroupDelete").submit();
 			
 		});	
 	</script>
