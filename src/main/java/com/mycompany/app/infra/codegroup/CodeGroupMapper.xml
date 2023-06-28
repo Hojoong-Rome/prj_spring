@@ -11,14 +11,20 @@
 											<!-- SELECT 결과를 받을 객체 -->
     <resultMap id="resultMapObj" type="com.mycompany.app.codegroup.CodeGroup"></resultMap>
     
+    <sql id="abc">
+	    seq
+	    , name
+	    , delNy
+    </sql>
+    
     
     <select id="selectList" resultMap="resultMapObj">
     	SELECT *
     	
     	FROM 
     		codeGroup
-    	WHERE
-    		name LIKE CONCAT('%', #{shKeyword}, '%')
+    	WHERE 1=1
+    		<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%', #{shKeyword}, '%')</if> 
     </select>
     
     <update id="update">
