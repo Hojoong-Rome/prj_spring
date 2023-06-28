@@ -924,17 +924,28 @@
                     </tr>
                       </c:forEach>
                     </c:otherwise>
-                  </c:choose>	  	
+                  </c:choose>        
                   </tbody>
                 </table>
               </div>
               <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
-                <span class="flex items-center col-span-3">
+                <span class="flex items-center col-span-2">
                   Showing 21-30 of 100
                 </span>
-                <span class="col-span-2"></span>
+                <span class="col-span-3">
+                <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
+		          <select class="form-select" aria-label="typeSelect" name="shOption">
+		             <option value="2">Name</option>
+		          </select>
+		          <div>
+		             <label for="searchForm" class="form-label">Search</label>
+		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword">
+		          </div>
+		          <button type="button" class="btn btn-primary" id="btn">Submit</button>
+		       </form>
+                </span>
                 <!-- Pagination -->
                 <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
@@ -1134,7 +1145,8 @@
                 <span class="flex items-center col-span-3">
                   Showing 21-30 of 100
                 </span>
-                <span class="col-span-2"></span>
+                <span class="col-span-2">
+                </span>
                 <!-- Pagination -->
                 <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
@@ -1229,6 +1241,15 @@
         </main>
       </div>
     </div>
+    <script type="text/javascript">
+      
+      $("#btn").on("click", function(){
+         
+         $("form[name=formList]").attr("method", "get");
+         $("form[name=formList]").attr("action", "/codeGroupList").submit();
+         
+      });
+   
+   </script>
   </body>
 </html>
-
