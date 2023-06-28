@@ -16,7 +16,7 @@ public class CodeGroupDao {
 	private SqlSession sqlSession;
 	
 	
-	private static String namespace="com.mycompany.app.codegroup.CodeGroupMapper";
+	private static String namespace="com.mycompany.app.infra.codegroup.CodeGroupMapper";
 	
 	
 	

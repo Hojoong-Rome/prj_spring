@@ -22,7 +22,7 @@ public class CodeGroupController {
 		
 		model.addAttribute("list", list);
 		
-		return "codeGroupList";
+		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	
 	@RequestMapping("/codeGroupForm")
@@ -32,27 +32,27 @@ public class CodeGroupController {
 		
 		model.addAttribute("item", codeGroup);
 		
-		return "codeGroupForm3";
+		return "xdm/infra/codeGroup/codeGroupForm3";
 	}
 	
 	@RequestMapping("/codeGroupUpdt")
 	public String codeGroupUpdt(CodeGroup dto) {
 		service.update(dto);
 		
-		return "codeGroupList";
+		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	
 	@RequestMapping("/codeGroupDelete")
 	public String codeGroupDelete(CodeGroup dto) {
 		service.delete(dto);
 		
-		return "codeGroupList";
+		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	
 	@RequestMapping("/codeGroupInsert")
 	public String codeGroupInsert(CodeGroup dto) {
 		service.insert(dto);
 		
-		return "codeGroupList";
+		return "xdm/infra/codeGroup/codeGroupList";
 	}
 }
