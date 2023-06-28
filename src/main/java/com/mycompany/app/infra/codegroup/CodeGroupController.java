@@ -25,15 +25,15 @@ public class CodeGroupController {
 		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	
-	@RequestMapping("/codeGroupForm")
-	public String codeGroupForm(CodeGroupVo vo, Model model) {
-								//HttpServletRequest httpServletRequest, 
-		CodeGroup codeGroup = service.selectOne(vo);
-		
-		model.addAttribute("item", codeGroup);
-		
-		return "xdm/infra/codeGroup/codeGroupForm3";
-	}
+//	@RequestMapping("/codeGroupForm")
+//	public String codeGroupForm(CodeGroupVo vo, Model model) {
+//								//HttpServletRequest httpServletRequest, 
+//		CodeGroup codeGroup = service.selectOne(vo);
+//		
+//		model.addAttribute("item", codeGroup);
+//		
+//		return "xdm/infra/codeGroup/codeGroupForm3";
+//	}
 	
 	@RequestMapping("/codeGroupUpdt")
 	public String codeGroupUpdt(CodeGroup dto) {
