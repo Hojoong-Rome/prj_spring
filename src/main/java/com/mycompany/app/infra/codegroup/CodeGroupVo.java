@@ -22,13 +22,12 @@ public class CodeGroupVo {
 	public void setShKeyword(String shKeyword) {
 		this.shKeyword = shKeyword;
 	}
-	public String getIfcgSeq() {
+	public String getSeq() {
 		return seq;
 	}
-	public void setIfcgSeq(String seq) {
+	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	
 	
 	
 }

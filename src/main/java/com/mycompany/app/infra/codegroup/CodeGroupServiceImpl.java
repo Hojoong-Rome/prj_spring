@@ -16,8 +16,7 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 
 	@Override
 	public CodeGroup selectOne(CodeGroupVo vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectOne(vo);
 	}
 	
 	@Override

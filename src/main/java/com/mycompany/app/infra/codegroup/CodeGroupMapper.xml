@@ -27,6 +27,17 @@
     		<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%', #{shKeyword}, '%')</if> 
     </select>
     
+    <select id="selectOne" resultMap="resultMapObj">
+	    SELECT
+	    	seq
+	    	, name
+	    	, delNy
+	    FROM
+	    	codeGroup
+	    WHERE
+	    	seq = #{seq}
+    </select>
+    
     <update id="update">
     	UPDATE codeGroup
     	
