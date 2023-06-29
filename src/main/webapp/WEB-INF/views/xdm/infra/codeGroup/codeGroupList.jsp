@@ -881,6 +881,16 @@
             >
               Table with avatars
             </h4>
+            <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
+		          <select class="form-select" aria-label="typeSelect" name="shOption">
+		             <option value="2">Name</option>
+		          </select>
+		          <div id="searchBox">
+		             <label class="form-label"></label>
+		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search">
+		          </div>
+		          <button type="button" class="btn btn-primary" id="btn">Submit</button>
+		       </form>
             <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
@@ -956,19 +966,10 @@
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
                 <span class="col-span-3">
-                <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
-		          <select class="form-select" aria-label="typeSelect" name="shOption">
-		             <option value="2">Name</option>
-		          </select>
-		          <div id="searchBox">
-		             <label class="form-label"></label>
-		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search">
-		          </div>
-		          <button type="button" class="btn btn-primary" id="btn">Submit</button>
-		       </form>
+                
                 </span>
                 <!-- Pagination -->
-                <a href="codeGroupInsertPage"><button>Insert</button></a>
+                <a href="codeGroupInsertPage"><button id="btnInsert">Insert</button></a>
                 <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
