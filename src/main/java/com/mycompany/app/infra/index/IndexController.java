@@ -30,4 +30,11 @@ public class IndexController {
 		return "xdm/infra/index/adminPage";
 		
 	}
+	
+	@RequestMapping("/codeGroupInsertPage")
+	public String codeGroupInsertPage() {
+		
+		return "xdm/infra/codeGroup/codeGroupInsert";
+	}
+	
 }

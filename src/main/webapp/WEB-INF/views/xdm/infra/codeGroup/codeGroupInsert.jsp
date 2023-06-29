@@ -888,10 +888,9 @@
               	
                     <form name="form" method="post">
 						<div class="input-group">
-							<input type="text" name="seq" value="<c:out value='${item.seq }'></c:out>" id="seq" class="form-control bg-light border-0 small" aria-label="seqInput" readonly >
+							<input type="text" name="seq" value="<c:out value='${item.seq }'></c:out>" id="seq" class="form-control bg-light border-0 small" aria-label="seqInput" >
 							<input type="text" name="name" value="<c:out value='${item.name }'></c:out>" id="name" class="form-control bg-light border-0 small" aria-label="nameInput"  >
-							<button type="button" id="btnUpdt" class="btn btn-primary">Update</button>
-							<button type="button" id="btnDel" class="btn btn-primary">Uelete</button>
+							<button type="button" id="btnInsert" class="btn btn-primary">Insert</button>
 						</div>
 					</form>
                
@@ -906,26 +905,15 @@
     
     <script type="text/javascript">
       
-      $("#btn").on("click", function(){
-         
-         $("form[name=formList]").attr("method", "get");
-         $("form[name=formList]").attr("action", "/codeGroupList").submit();
-         
-      });
       
-      $("#btnUpdt").on("click", function(){
+		$("#btnInsert").on("click", function(){
 			
 			// $("form[name=formList]").attr("action", "get");
-			$("form[name=form]").attr("action", "/codeGroupUpdt").submit();
+			$("form[name=form]").attr("action", "/codeGroupInsert").submit();
 			
 		});	
 		
-		$("#btnDel").on("click", function(){
-			
-			// $("form[name=formList]").attr("action", "get");
-			$("form[name=form]").attr("action", "/codeGroupDelete").submit();
-			
-		});	
+		
    
    </script>
   </body>

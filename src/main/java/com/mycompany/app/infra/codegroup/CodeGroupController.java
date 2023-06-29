@@ -41,6 +41,7 @@ public class CodeGroupController {
 		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	
+	
 	@RequestMapping("/codeGroupDelete")
 	public String codeGroupDelete(CodeGroup dto) {
 		service.delete(dto);

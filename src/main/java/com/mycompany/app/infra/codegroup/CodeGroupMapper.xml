@@ -49,12 +49,10 @@
     
     <insert id="insert">
     	INSERT INTO `codeGroup`(
-    		seq
-			, name
+    		name
 			, delNy
 		) VALUES (
-			#{seq}
-			, #{name}
+			#{name}
 			, 1
 		)
     </insert>
