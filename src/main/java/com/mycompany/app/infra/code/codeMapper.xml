@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycompany.app.infra.codegroup.CodeGroupMapper">
+<!-- 
+	전체 매퍼중에서 유일한 값을 사용하여야 한다.
+	해서 관계적으로 해당 파일의 패스와 파일 이름(확장자 제외)
+	그리고 dao에서 namespace와 일치하여야 한다.
+ -->
+											<!-- SELECT 결과를 받을 객체 -->
+    <resultMap id="resultMapObj" type="com.mycompany.app.infra.codegroup.CodeGroup"></resultMap>
+    
+    <sql id="abc">
+	    seq
+	    , name
+	    , delNy
+    </sql>
+    
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT *
+    	
+    	FROM 
+    		codeGroup
+    	WHERE 1=1
+    		<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%', #{shKeyword}, '%')</if> 
+    </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+	    SELECT
+	    	seq
+	    	, name
+	    	, delNy
+	    FROM
+	    	codeGroup
+	    WHERE
+	    	seq = #{seq}
+    </select>
+    
+    <update id="update">
+    	UPDATE codeGroup
+    	
+    	SET 
+    		name = #{name}
+    	WHERE
+    		seq = #{seq}
+    </update>
+    
+    <insert id="insert">
+    	INSERT INTO `codeGroup`(
+    		name
+			, delNy
+		) VALUES (
+			#{name}
+			, 1
+		)
+    </insert>
+    
+    
+    <delete id="delete">
+    	UPDATE codeGroup
+    	
+    	SET 
+    		delNy = 0
+    	WHERE
+    		seq = #{seq}
+    		AND name = #{name}
+    </delete>
+
+</mapper>    

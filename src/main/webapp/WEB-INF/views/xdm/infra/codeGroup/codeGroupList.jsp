@@ -28,7 +28,7 @@
     	}
     	#searchForm{
 			border: 1px solid black;    	
-    		width: 150px;
+    		width: 240px;
     		height: 100%;
 			border-radius: 5px;
     	}
@@ -43,13 +43,9 @@
     		justify-content: center;
     		align-item: center;
     	}
-    	#btnUpdt,
-    	#btnInsert,
-    	#btnDel{
-    		width: 70px;
-    		height: 30px;
-    		border: 1px solid gray;
-    		border-radius: 5px;
+    	#btnInsert{
+    		margin-left: 93%;
+    		margin-bottom: 1%;
     	}
     	#seq{
     		border: 1px solid gray;
@@ -889,9 +885,9 @@
 		             <label class="form-label"></label>
 		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search">
 		          </div>
-		          <button type="button" class="btn btn-primary" id="btn">Submit</button>
+		          <button type="button" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" id="btn">Submit</button>
 		       </form>
-            <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+            <div id="mainCont" class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
                   <thead>
@@ -965,12 +961,9 @@
               <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
-                <span class="col-span-3">
+                <div class="col-span-2"></div>
                 
-                </span>
-                <!-- Pagination -->
-                <a href="codeGroupInsertPage"><button id="btnInsert">Insert</button></a>
-                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-center">
                   <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
                       <li>
@@ -1058,6 +1051,7 @@
                   </nav>
                 </span>
               </div>
+              <a href="codeGroupInsertPage"><button id="btnInsert" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Insert</button></a>
             </div>
 
             <!-- With actions -->
@@ -1072,6 +1066,7 @@
     
     <script type="text/javascript">
       
+    
       $("#btn").on("click", function(){
          
          $("form[name=formList]").attr("method", "get");

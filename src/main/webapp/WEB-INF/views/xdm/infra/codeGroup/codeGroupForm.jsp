@@ -4,13 +4,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tables - Windmill Dashboard</title>
+    <title>Windmill Dashboard - Forms</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -21,45 +20,6 @@
       defer
     ></script>
     <script src="../../../../resources/adminsource/assets/js/init-alpine.js"></script>
-    <style type="text/css">
-    	#searchBox{
-			width: 150px;
-			margin-right: 10px;
-    	}
-    	#searchForm{
-			border: 1px solid black;    	
-    		width: 150px;
-    		height: 100%;
-			border-radius: 5px;
-    	}
-    	#btn{
-    		border: 1px solid gray;
-    		border-radius: 5px;
-    	}
-    	#updateFormDiv{
-    		height: 100px;
-    		margin-top: 40px;
-    		display: flex;
-    		justify-content: center;
-    		align-item: center;
-    	}
-    	#btnUpdt,
-    	#btnInsert,
-    	#btnDel{
-    		width: 70px;
-    		height: 30px;
-    		border: 1px solid gray;
-    		border-radius: 5px;
-    	}
-    	#seq{
-    		border: 1px solid gray;
-    		border-radius: 5px;
-    	}
-    	#name{
-    		border: 1px solid gray;
-    		border-radius: 5px;
-    	}
-    </style>
   </head>
   <body>
     <div
@@ -68,7 +28,7 @@
     >
       <!-- Desktop sidebar -->
       <aside
-        class="z-20 flex-shrink-0 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block"
+        class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
@@ -103,8 +63,12 @@
           </ul>
           <ul>
             <li class="relative px-6 py-3">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                 href="forms.html"
               >
                 <svg
@@ -214,12 +178,8 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="tables.html"
               >
                 <svg
@@ -384,8 +344,12 @@
           </ul>
           <ul>
             <li class="relative px-6 py-3">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                 href="forms.html"
               >
                 <svg
@@ -495,12 +459,8 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="tables.html"
               >
                 <svg
@@ -608,14 +568,14 @@
           </div>
         </div>
       </aside>
-      <div class="flex flex-col flex-1 w-full">
+      <div class="flex flex-col flex-1">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
             <!-- Mobile hamburger -->
             <button
-              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
               @click="toggleSideMenu"
               aria-label="Menu"
             >
@@ -867,65 +827,85 @@
           </div>
         </header>
         <main class="h-full pb-16 overflow-y-auto">
-          <div class="container grid px-6 mx-auto">
+          <div class="container px-6 mx-auto grid">
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Tables
+              Forms
             </h2>
+            <!-- CTA -->
             
 
-
-            <!-- With actions -->
+            <!-- General elements -->
             <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
             >
-              Table with actions
+              codeGroup
             </h4>
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
-              <div class="w-full overflow-x-auto" id="updateFormDiv">
-              	
-              	
-                    <form name="form" method="post">
-						<div class="input-group">
-							<input type="text" name="seq" value="<c:out value='${item.seq }'></c:out>" id="seq" class="form-control bg-light border-0 small" aria-label="seqInput" readonly >
-							<input type="text" name="name" value="<c:out value='${item.name }'></c:out>" id="name" class="form-control bg-light border-0 small" aria-label="nameInput"  >
-							<button type="button" id="btnUpdt" class="btn btn-primary">Update</button>
-							<button type="button" id="btnDel" class="btn btn-primary">Uelete</button>
-						</div>
-					</form>
-               
-              </div>
+            <div
+              class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+            >
+			<form name="form" method="post">
+	            <label class="block text-sm">
+	                <span class="text-gray-700 dark:text-gray-400">seq</span>
+	                <input type="text" name="seq" value="<c:out value='${item.seq }'></c:out>" id="seq" class="form-control bg-light border-gray-600 small block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" aria-label="seqInput" readonly >
+
+	              </label>
+	
+	              <label class="block text-sm">
+	                <span class="text-gray-700 dark:text-gray-400">name</span>
+	                <input type="text" name="name" value="<c:out value='${item.name }'></c:out>" id="name" class="form-control bg-light border-gray-600 small block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" aria-label="nameInput"  >
+
+	              </label>
+				<button
+	                  type="button" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-gray-700 rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" id="btnUpdt"
+	                >
+	                  Update
+                </button>
+                <button
+	                  type="button" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border-700 border-gray rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" id="btnDel"
+	                >
+	                  Delete
+                </button>
+	                  
+                  </form>
+                  
+                </div>
               </div>
             </div>
-          </div>
+
+            
+              
+            </div>
         </main>
-      </div>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     
     <script type="text/javascript">
       
-      $("#btn").on("click", function(){
-         
-         $("form[name=formList]").attr("method", "get");
-         $("form[name=formList]").attr("action", "/codeGroupList").submit();
-         
-      });
       
-      $("#btnUpdt").on("click", function(){
-			
-			// $("form[name=formList]").attr("action", "get");
-			$("form[name=form]").attr("action", "/codeGroupUpdt").submit();
-			
-		});	
-		
-		$("#btnDel").on("click", function(){
-			
-			// $("form[name=formList]").attr("action", "get");
-			$("form[name=form]").attr("action", "/codeGroupDelete").submit();
-			
-		});	
+	   /*  
+	   	$("#btn").on("click", function(){
+	        
+	        $("form[name=formList]").attr("method", "get");
+	        $("form[name=formList]").attr("action", "/codeGroupList").submit();
+	        
+	     });  	
+	   */
+	     
+	     $("#btnUpdt").on("click", function(){
+	        
+	        // $("form[name=formList]").attr("action", "get");
+	        $("form[name=form]").attr("action", "/codeGroupUpdt").submit();
+	        
+	     });   
+	     
+	     $("#btnDel").on("click", function(){
+	        
+	        // $("form[name=formList]").attr("action", "get");
+	        $("form[name=form]").attr("action", "/codeGroupDelete").submit();
+	        
+	     });   
+      
    
    </script>
   </body>
