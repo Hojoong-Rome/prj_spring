@@ -1,6 +1,6 @@
 package com.mycompany.app.infra.code;
 
-public class code {
+public class Code {
 	
 	private String seq;
 	private String name;
