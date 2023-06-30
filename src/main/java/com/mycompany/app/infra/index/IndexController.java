@@ -37,4 +37,10 @@ public class IndexController {
 		return "xdm/infra/codeGroup/codeGroupInsert";
 	}
 	
+	@RequestMapping("/codeInsertPage")
+	public String codeInsertPage() {
+		
+		return "xdm/infra/code/codeInsert";
+	}
+	
 }
