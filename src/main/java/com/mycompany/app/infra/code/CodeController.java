@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,11 +16,13 @@ public class CodeController {
 	CodeServiceImpl service;
 	
 	@RequestMapping("/codeList")
-	public String codeList(CodeVo vo, Model model) {
+	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) {
 		
+		vo.setShKeyword(vo.getShKeyword() == null ? "회원" : vo.getShKeyword());
 		List<Code> list = service.selectList(vo);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("vo", vo);
 		
 		return "xdm/infra/code/codeList";
 	}

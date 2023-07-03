@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,11 +17,14 @@ public class CodeGroupController {
 	CodeGroupServiceImpl service;
 	
 	@RequestMapping("/codeGroupList")
-	public String codeGroupList(CodeGroupVo vo, Model model) {
-								//HttpServletRequest httpServletRequest, 
+	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
+								//HttpServletRequest httpServletRequest, \
+		vo.setShKeyword(vo.getShKeyword() == null ? "great" : vo.getShKeyword());
+		
 		List<CodeGroup> list = service.selectList(vo);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("vo", vo);
 		
 		return "xdm/infra/codeGroup/codeGroupList";
 	}

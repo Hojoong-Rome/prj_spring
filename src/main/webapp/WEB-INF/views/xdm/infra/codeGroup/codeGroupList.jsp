@@ -883,7 +883,7 @@
 		          </select>
 		          <div id="searchBox">
 		             <label class="form-label"></label>
-		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search">
+		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search" value="<c:out value="${vo. shKeyword }"/>" >
 		          </div>
 		          <button type="button" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" id="btn">Submit</button>
 		       </form>
@@ -1051,7 +1051,7 @@
                   </nav>
                 </span>
               </div>
-              <a href="codeGroupInsertPage"><button id="btnInsert" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Insert</button></a>
+              <button id="btnInsert" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"><a href="codeGroupInsertPage">Insert</a></button>
             </div>
 
             <!-- With actions -->
