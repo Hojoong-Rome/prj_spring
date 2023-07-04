@@ -5,9 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mycompany.app.infra.codegroup.CodeGroupVo;
+
 @Service
 public class CodeServiceImpl implements CodeService {
 
+	@Override
+	public int selectOneCount(CodeVo vo) {
+		return dao.selectOneCount(vo);
+	}
+	
 	@Autowired
 	CodeDao dao;
 	

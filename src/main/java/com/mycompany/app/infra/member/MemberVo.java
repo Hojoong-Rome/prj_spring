@@ -1,6 +1,6 @@
-package com.mycompany.app.infra.codegroup;
+package com.mycompany.app.infra.member;
 
-public class CodeGroupVo {
+public class MemberVo {
 	
 
 	private Integer shOption;
@@ -71,8 +71,8 @@ public class CodeGroupVo {
 	public int getTotalPages() {
 		return totalPages;
 	}
-	public void setTotalPages(int tatalPages) {
-		this.totalPages = tatalPages;
+	public void setTotalPages(int totalPages) {
+		this.totalPages = totalPages;
 	}
 	public int getStartPage() {
 		return startPage;
@@ -111,9 +111,8 @@ public class CodeGroupVo {
 		this.startRnumForMysql = startRnumForMysql;
 	}
 	
-//	===============================================
 	public void setParamsPaging(int totalRows) {
-			
+		
 //		setThisPage(3);
 	
 			setTotalRows(totalRows);
@@ -161,6 +160,5 @@ public class CodeGroupVo {
 			System.out.println("getStartRnumForMysql(): " + getStartRnumForMysql());
 			
 		}
-	
 	
 }

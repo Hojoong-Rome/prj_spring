@@ -3,6 +3,8 @@ package com.mycompany.app.infra.codegroup;
 import java.util.List;
 
 public interface CodeGroupService {
+
+	public int selectOneCount(CodeGroupVo vo);
 	
 	public List<CodeGroup> selectList(CodeGroupVo vo);
 	

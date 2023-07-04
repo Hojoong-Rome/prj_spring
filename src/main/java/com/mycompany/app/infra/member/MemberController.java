@@ -1,4 +1,4 @@
-package com.mycompany.app.infra.codegroup;
+package com.mycompany.app.infra.member;
 
 import java.util.List;
 
@@ -11,35 +11,30 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class CodeGroupController {
+public class MemberController {
 
 	@Autowired
-	CodeGroupServiceImpl service;
+	MemberServiceImpl service;
 	
-	@RequestMapping("/codeGroupList")
-	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
+	@RequestMapping("/memberList")
+	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) {
 								//HttpServletRequest httpServletRequest, \
 		vo.setShKeyword(vo.getShKeyword() == null ? "great" : vo.getShKeyword());
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
 		if(vo.getTotalRows() > 0) {
-			List<CodeGroup> list = service.selectList(vo);
+			List<Member> list = service.selectList(vo);
 			model.addAttribute("list", list);
 		} else {
 //			by pass
 		}
 
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "xdm/infra/member/memberList";
 		
-		
-//		List<CodeGroup> list = service.selectList(vo);
-//		
-//		model.addAttribute("list", list);
-//		model.addAttribute("vo", vo);
-//		
-//		return "xdm/infra/codeGroup/codeGroupList";
 	}
+	
+//  --------------------여기부터 작업할것 7/4 --------------------------	
 	
 	@RequestMapping("/codeGroupForm")
 	public String codeGroupForm(CodeGroupVo vo, Model model) {

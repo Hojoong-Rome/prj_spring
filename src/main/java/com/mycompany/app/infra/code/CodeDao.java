@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mycompany.app.infra.codegroup.CodeGroupVo;
+
 @Repository
 public class CodeDao {
 
@@ -18,7 +20,7 @@ public class CodeDao {
 	
 	private static String namespace="com.mycompany.app.infra.code.CodeMapper";
 	
-	
+	public int selectOneCount(CodeVo vo){ return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
 	
 	
 	public List<Code> selectList(CodeVo vo){

@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.app.infra.codegroup.CodeGroup;
+
 @Controller
 public class CodeController {
 
@@ -18,13 +20,26 @@ public class CodeController {
 	@RequestMapping("/codeList")
 	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) {
 		
-		vo.setShKeyword(vo.getShKeyword() == null ? "회원" : vo.getShKeyword());
-		List<Code> list = service.selectList(vo);
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
 		
-		model.addAttribute("list", list);
-		model.addAttribute("vo", vo);
+		vo.setParamsPaging(service.selectOneCount(vo));
 		
+		if(vo.getTotalRows() > 0) {
+			List<Code> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		} else {
+//			by pass
+		}
+
 		return "xdm/infra/code/codeList";
+		
+//		vo.setShKeyword(vo.getShKeyword() == null ? "회원" : vo.getShKeyword());
+//		List<Code> list = service.selectList(vo);
+//		
+//		model.addAttribute("list", list);
+//		model.addAttribute("vo", vo);
+//		
+//		return "xdm/infra/code/codeList";
 	}
 	
 	@RequestMapping("/codeForm")

@@ -878,6 +878,8 @@
               Table with avatars
             </h4>
             <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
+	            <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 		          <select class="form-select" aria-label="typeSelect" name="shOption">
 		             <option value="2">Name</option>
 		          </select>
@@ -958,12 +960,84 @@
                   </tbody>
                 </table>
               </div>
+              <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-center">
+              <nav aria-label="Table navigation">
+               <ul class="inline-flex items-center">
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
+                          aria-label="Previous"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="w-4 h-4 fill-current"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                       <c:if test="${vo.startPage gt vo.pageNumToShow}">
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          <a class="page-link" href="javascript:goList(${vo.startPage - 1})">
+                          1
+                         </a>
+                        </button>
+                      </li>
+                      </c:if>
+                      <c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+							<c:choose>
+								<c:when test="${i.index eq vo.thisPage}">
+						                <li class="page-item active"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
+								</c:when>
+								<c:otherwise>             
+						                <li class="page-item"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>                
+						<c:if test="${vo.endPage ne vo.totalPages}">                
+						                <li class="page-item"><a class="page-link" href="javascript:goList(${vo.endPage + 1})"><i class="fa-solid fa-angle-right"></i></a></li>
+						</c:if>
+						<li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
+                          aria-label="Next"
+                        >
+                          <svg
+                            class="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                      </ul>
+						</nav>
+                	</span><br>
               <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
                 <div class="col-span-2"></div>
                 
-                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-center">
+                <div class="container-fluid px-0 mt-2">
+	   
+	                <!-- <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-angles-left"></i></a></li> -->
+
+	                <!-- <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-angles-right"></i></a></li> -->
+	           
+                <!-- <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-center">
                   <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
                       <li>
@@ -984,13 +1058,30 @@
                           </svg>
                         </button>
                       </li>
+                       <c:if test="${vo.startPage gt vo.pageNumToShow}">
                       <li>
                         <button
                           class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
                         >
+                          <a class="page-link" href="javascript:goList(${vo.startPage - 1})">
                           1
+                         </a>
                         </button>
                       </li>
+                      </c:if>
+                      <c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+							<c:choose>
+								<c:when test="${i.index eq vo.thisPage}">
+						                <li class="page-item active"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
+								</c:when>
+								<c:otherwise>             
+						                <li class="page-item"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>                
+						<c:if test="${vo.endPage ne vo.totalPages}">                
+						                <li class="page-item"><a class="page-link" href="javascript:goList(${vo.endPage + 1})"><i class="fa-solid fa-angle-right"></i></a></li>
+						</c:if>
                       <li>
                         <button
                           class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
@@ -1049,14 +1140,14 @@
                       </li>
                     </ul>
                   </nav>
-                </span>
-              </div>
+                </span> -->
+              </div><br>
               <button id="btnInsert" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"><a href="codeGroupInsertPage">Insert</a></button>
             </div>
-
+			<div>
             <!-- With actions -->
-            
-            
+            	
+            </div>
             </div>
           </div>
         </main>
@@ -1072,8 +1163,15 @@
          $("form[name=formList]").attr("method", "get");
          $("form[name=formList]").attr("action", "/codeGroupList").submit();
          
+         
+         
       });
       
+      
+      goList = function(thisPage) {
+  		$("input:hidden[name=thisPage]").val(thisPage);
+  		$("form[name=formList]").attr("action", "/codeGroupList").submit();
+      }
       
    
    </script>

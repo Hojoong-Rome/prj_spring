@@ -43,4 +43,9 @@ public class IndexController {
 		return "xdm/infra/code/codeInsert";
 	}
 	
+	@RequestMapping("/signInPage")
+	public String signInPage() {
+		return "usr/infra/index/signin";
+	}
+	
 }

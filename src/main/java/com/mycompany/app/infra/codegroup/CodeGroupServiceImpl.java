@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class CodeGroupServiceImpl implements CodeGroupService {
 
+	@Override
+	public int selectOneCount(CodeGroupVo vo) {
+		return dao.selectOneCount(vo);
+		
+	}
+	
 	@Autowired
 	CodeGroupDao dao;
 	
@@ -33,5 +39,7 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 	public int insert(CodeGroup dto) {
 		return dao.insert(dto);
 	}
+
+	
 	
 }
