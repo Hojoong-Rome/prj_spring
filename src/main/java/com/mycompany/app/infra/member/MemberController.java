@@ -36,34 +36,34 @@ public class MemberController {
 	
 //  --------------------여기부터 작업할것 7/4 --------------------------	
 	
-	@RequestMapping("/codeGroupForm")
-	public String codeGroupForm(CodeGroupVo vo, Model model) {
+	@RequestMapping("/memberForm")
+	public String memberForm(MemberVo vo, Model model) {
 								//HttpServletRequest httpServletRequest, 
 		
 		model.addAttribute("item", service.selectOne(vo));
 		
-		return "xdm/infra/codeGroup/codeGroupForm";
+		return "xdm/infra/member/memberForm";
 	}
 	
-	@RequestMapping("/codeGroupUpdt")
-	public String codeGroupUpdt(CodeGroup dto) {
+	@RequestMapping("/memberUpdt")
+	public String memberUpdt(Member dto) {
 		service.update(dto);
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "xdm/infra/member/memberList";
 	}
 	
 	
-	@RequestMapping("/codeGroupDelete")
-	public String codeGroupDelete(CodeGroup dto) {
+	@RequestMapping("/memberDelete")
+	public String memberDelete(Member dto) {
 		service.delete(dto);
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "xdm/infra/member/memberList";
 	}
 	
-	@RequestMapping("/codeGroupInsert")
-	public String codeGroupInsert(CodeGroup dto) {
+	@RequestMapping("/memberInsert")
+	public String memberInsert(Member dto) {
 		service.insert(dto);
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "xdm/infra/member/memberList";
 	}
 }
