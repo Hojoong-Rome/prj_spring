@@ -1164,7 +1164,6 @@
          $("form[name=formList]").attr("action", "/codeGroupList").submit();
          
          
-         
       });
       
       

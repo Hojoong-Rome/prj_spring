@@ -840,7 +840,7 @@
             <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
             >
-              codeGroup
+              member
             </h4>
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
@@ -853,8 +853,18 @@
 	              </label>
 	
 	              <label class="block text-sm">
-	                <span class="text-gray-700 dark:text-gray-400">name</span>
-	                <input type="text" name="name" value="<c:out value='${item.name }'></c:out>" id="name" class="form-control bg-light border-gray-600 small block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" aria-label="nameInput"  >
+	                <span class="text-gray-700 dark:text-gray-400">nickname</span>
+	                <input type="text" name="nickname" value="<c:out value='${item.nickname }'></c:out>" id="nickname" class="form-control bg-light border-gray-600 small block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" aria-label="nameInput"  >
+
+	              </label>
+	              <label class="block text-sm">
+	                <span class="text-gray-700 dark:text-gray-400">email</span>
+	                <input type="text" name="email" value="<c:out value='${item.email }'></c:out>" id="email" class="form-control bg-light border-gray-600 small block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" aria-label="emailInput"  >
+
+	              </label>
+	              <label class="block text-sm">
+	                <span class="text-gray-700 dark:text-gray-400">password</span>
+	                <input type="text" name="password" value="<c:out value='${item.password }'></c:out>" id="password" class="form-control bg-light border-gray-600 small block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" aria-label="passwordInput"  >
 
 	              </label>
 				<button

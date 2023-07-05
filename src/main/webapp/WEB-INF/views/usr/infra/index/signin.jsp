@@ -48,6 +48,7 @@
               >
                 Create account
               </h1>
+              <form name="form" method="post">
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">
                   Nickname
@@ -56,6 +57,8 @@
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Your Nickname"
                   type="text"
+                  name="nickname"
+                  id="nickname"
                 />
               </label>
               <label class="block text-sm mt-4">
@@ -64,6 +67,8 @@
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="aaaaaa@aaaaaa.com"
                   type="email"
+                  name="email"
+                  id="email"
                 />
               </label>
               <label class="block mt-4 text-sm">
@@ -72,18 +77,20 @@
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="***************"
                   type="password"
+                  name="password"
+                  id="password"
                 />
               </label>
               
 
               <!-- You should use a button here, as the anchor is only used for the example  -->
-              <a
+              <button
                 class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                href="./login.html"
+                id="btnInsert"
               >
                 Create account
-              </a>
-
+              </button>
+				</form>
               <hr class="my-8" />
 
               <button
@@ -118,17 +125,31 @@
               </button>
 
               <p class="mt-4">
-                <a
+                <div
                   class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="./login.html"
                 >
                   Already have an account? Login
-                </a>
+                </div>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+      
+      
+      $("#btnInsert").on("click", function(){
+         
+         //$("form[name=formList]").attr("action", "get");
+         $("form[name=form]").attr("action", "/memberInsert").submit();
+         
+      });   
+      
+      
+   
+   </script>
   </body>
 </html>
