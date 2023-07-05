@@ -19,7 +19,7 @@ public class CodeGroupController {
 	@RequestMapping("/codeGroupList")
 	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
 								//HttpServletRequest httpServletRequest, \
-		vo.setShKeyword(vo.getShKeyword() == null ? "great" : vo.getShKeyword());
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
@@ -29,7 +29,7 @@ public class CodeGroupController {
 		} else {
 //			by pass
 		}
-
+		
 		return "xdm/infra/codeGroup/codeGroupList";
 		
 		

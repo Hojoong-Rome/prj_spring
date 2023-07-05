@@ -939,7 +939,17 @@
                       </td>
                       <td class="px-4 py-3 text-sm">
                       <a href="codeGroupForm?seq=<c:out value='${list.seq }'/>">
-                              <c:out value="${list.name}"></c:out>
+                              <c:out value="${list.nickname}"></c:out>
+                      </a>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                      <a href="codeGroupForm?seq=<c:out value='${list.seq }'/>">
+                              <c:out value="${list.email}"></c:out>
+                      </a>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                      <a href="codeGroupForm?seq=<c:out value='${list.seq }'/>">
+                              <c:out value="${list.password}"></c:out>
                       </a>
                       </td>
                       <td class="px-4 py-3 text-xs">

@@ -19,7 +19,7 @@ public class MemberController {
 	@RequestMapping("/memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) {
 								//HttpServletRequest httpServletRequest, \
-		vo.setShKeyword(vo.getShKeyword() == null ? "great" : vo.getShKeyword());
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
@@ -34,7 +34,6 @@ public class MemberController {
 		
 	}
 	
-//  --------------------여기부터 작업할것 7/4 --------------------------	
 	
 	@RequestMapping("/memberForm")
 	public String memberForm(MemberVo vo, Model model) {

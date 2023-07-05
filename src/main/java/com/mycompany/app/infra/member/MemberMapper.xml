@@ -2,14 +2,15 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    		       
 <mapper namespace="com.mycompany.app.infra.member.MemberMapper">
 <!-- 
 	전체 매퍼중에서 유일한 값을 사용하여야 한다.
 	해서 관계적으로 해당 파일의 패스와 파일 이름(확장자 제외)
 	그리고 dao에서 namespace와 일치하여야 한다.
  -->
-											<!-- SELECT 결과를 받을 객체 -->
-    <resultMap id="resultMapObj" type="com.mycompany.app.infra.member.MemberMapper"></resultMap>
+									   
+    <resultMap id="resultMapObj" type="com.mycompany.app.infra.member.Member"></resultMap>
     
     <sql id="abc">
 	    seq

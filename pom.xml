@@ -194,6 +194,14 @@
 			<version>1.16</version>
 		</dependency>
 <!-- mysql, mariadb log s 2022.02.26 -->
+<!--
+ windows jdbc driver, 2023.07.05 
+		<dependency>
+		    <groupId>com.microsoft.sqlserver</groupId>
+		    <artifactId>mssql-jdbc</artifactId>
+		    <version>12.2.0.jre11</version>
+		</dependency>
+-->
 	</dependencies>
     <build>
         <plugins>
