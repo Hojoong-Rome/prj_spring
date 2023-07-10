@@ -880,14 +880,27 @@
     <script type="text/javascript">
       
       
+//      $("#btnInsert").on("click", function(){
+//         
+//         $("form[name=formList]").attr("action", "get");
+//         $("form[name=form]").attr("action", "/codeGroupInsert").submit();
+         
+//      });   
+      
+	   
+      
       $("#btnInsert").on("click", function(){
-         
-         //$("form[name=formList]").attr("action", "get");
-         $("form[name=form]").attr("action", "/codeGroupInsert").submit();
-         
-      });   
-      
-      
+    	 /* if($.trim($("#name").val()) == "" || $.trim($("#name").val()) == null){
+    		alert("멈춰!");	 
+    		$("#name").focus();
+    	 } else{
+    		 $("form[name=form]").attr("action", "/codeGroupInsert").submit();
+    	 }
+    	  */
+    	  if(validationUpdt() == false) return false;
+			
+	      $("form[name=form]").attr("action", "/codeGroupInsert").submit();
+      });
    
    </script>
   </body>

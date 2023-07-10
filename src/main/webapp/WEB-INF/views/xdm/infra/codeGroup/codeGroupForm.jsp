@@ -879,7 +879,7 @@
             </div>
         </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    
+    <script src="../../../../resources/js/validate.js"></script>
     <script type="text/javascript">
       
       
@@ -891,11 +891,15 @@
 	        
 	     });  	
 	   */
-	     
+	   validationUpdt = function(){
+			if(check($.trim("#name").val())) == false) return false;
+	   } 
+	    
 	     $("#btnUpdt").on("click", function(){
 	        
-	        // $("form[name=formList]").attr("action", "get");
+	    	 if(validationUpdt() == false) return false;
 	        $("form[name=form]").attr("action", "/codeGroupUpdt").submit();
+			
 	        
 	     });   
 	     

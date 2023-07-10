@@ -887,12 +887,15 @@
     <script type="text/javascript">
       
       
-      $("#btnInsert").on("click", function(){
-         
-         //$("form[name=formList]").attr("action", "get");
-         $("form[name=form]").attr("action", "/codeInsert").submit();
-         
-      });   
+    $("#btnInsert").on("click", function(){
+   	 if($.trim($("#name").val()) == "" || $.trim($("#name").val()) == null){
+   		alert("멈춰!");	 
+   		$("#name").focus();
+   	 } else{
+   		 $("form[name=form]").attr("action", "/codeInsert").submit();
+   	 }
+   	 
+     });  
       
       
    
