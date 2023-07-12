@@ -1,5 +1,5 @@
 check = function(obj){
-	xyy = /^[a-z0-9_-]{2, 10}$/;
+	xyy = /^[a-z0-9_-]{2,10}$/;
 
 //	console.log(xyy.test($.trim(obj.val())));
 
