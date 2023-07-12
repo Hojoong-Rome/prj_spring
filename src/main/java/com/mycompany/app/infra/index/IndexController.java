@@ -48,4 +48,13 @@ public class IndexController {
 		return "usr/infra/index/signin";
 	}
 	
+	@RequestMapping("/mymusic")
+	public String myMusic() {
+		return "usr/infra/mymusic/index";
+	}
+	
+	@RequestMapping("/mymusicSignup")
+	public String myMusicSignup() {
+		return "usr/infra/mymusic/signup";
+	}
 }

@@ -72,7 +72,7 @@
                     </label>
                 </div>
                 <button type="button" class="btn btn-primary" id="loginBtn">LOGIN</button>
-                <button type="button" class="btn btn-info" id="signinBtn">SIGN IN</button>
+                <a href="mymusicSignup"><button type="button" class="btn btn-info" id="signinBtn">SIGN UP</button></a>
             </div>
         </div>
     </div>

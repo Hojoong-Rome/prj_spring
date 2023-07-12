@@ -30,7 +30,7 @@ public class MyMusicController {
 //			by pass
 		}
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "usr/infra/mymusic/index";
 		
 		
 //		List<CodeGroup> list = service.selectList(vo);
@@ -47,14 +47,14 @@ public class MyMusicController {
 		
 		model.addAttribute("item", service.selectOne(vo));
 		
-		return "xdm/infra/codeGroup/codeGroupForm";
+		return "usr/infra/mymusic/index";
 	}
 	
 	@RequestMapping("/myMusicUpdt")
 	public String myMusicUpdt(MyMusic dto) {
 		service.update(dto);
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "usr/infra/mymusic/index";
 	}
 	
 	
@@ -62,13 +62,13 @@ public class MyMusicController {
 	public String myMusicDelete(MyMusic dto) {
 		service.delete(dto);
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "usr/infra/mymusic/index";
 	}
 	
 	@RequestMapping("/myMusicInsert")
 	public String myMusicInsert(MyMusic dto) {
 		service.insert(dto);
 		
-		return "xdm/infra/codeGroup/codeGroupList";
+		return "usr/infra/mymusic/index";
 	}
 }
