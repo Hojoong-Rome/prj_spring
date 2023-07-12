@@ -32,32 +32,32 @@
             <form name="form" method="post">
                 <div class="row g-3">
                     <div class="col-auto mb-3">
-                        <label for="inputName" class="form-label">Name</label>
-                        <input type="text" placeholder="name" class="form-control" id="inputName">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" placeholder="name" class="form-control" id="name">
                     </div> 
                     <div class="col-auto mb-3">
-                        <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" placeholder="email@email.ema" class="form-control" id="inputEmail">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" placeholder="email@email.ema" class="form-control" id="email">
                     </div>
                 </div>
                 <div class="row g-3 ">
                     <div class="col-auto mb-3">
-                        <label for="inputPw" class="form-label">Password</label>
-                        <input type="password" placeholder="8~16 eng and num" class="form-control" id="inputPw">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" placeholder="8~16 eng and num" class="form-control" id="password">
                     </div>
                     <div class="col-auto mb-3">
-                        <label for="inputNickname" class="form-label">Nickname</label>
-                        <input type="text" placeholder="nickname" class="form-control" id="inputNickname">
+                        <label for="nickname" class="form-label">Nickname</label>
+                        <input type="text" placeholder="nickname" class="form-control" id="nickname">
                     </div>
                 </div>
                 <div class="row g-3">
                     <div class="col-auto mb-3">
-                        <label for="inputPhone" class="form-label">Phone</label>
-                        <input type="text" placeholder="000-0000-0000" class="form-control" id="inputPhone">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" placeholder="000-0000-0000" class="form-control" id="phone">
                     </div>
                     <div class="col-auto mb-3">
-                        <label for="inputDob" class="form-label">Birthday</label>
-                        <input type="text" placeholder="YYYYMMDD" class="form-control" id="inputDob">
+                        <label for="dob" class="form-label">Birthday</label>
+                        <input type="text" placeholder="YYYYMMDD" class="form-control" id="dob">
                     </div>
                 </div>
             </form>
