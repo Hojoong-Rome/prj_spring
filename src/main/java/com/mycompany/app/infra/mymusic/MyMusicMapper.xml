@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    		       
+<mapper namespace="com.mycompany.app.infra.mymusic.MyMusicMapper">
+<!-- 
+	전체 매퍼중에서 유일한 값을 사용하여야 한다.
+	해서 관계적으로 해당 파일의 패스와 파일 이름(확장자 제외)
+	그리고 dao에서 namespace와 일치하여야 한다.
+ -->
+									   
+    <resultMap id="resultMapObj" type="com.mycompany.app.infra.mymusic.MyMusic"></resultMap>
+    
+    <sql id="abc">
+	    seq
+	    , name
+	    , email
+	    , password
+	    , name
+	    , phone
+	    , dob
+	    , point
+	    , delNy
+    </sql>
+    
+    <sql id="selectCommon">
+    	FROM 
+    		mymusicMember
+    	WHERE 1=1
+    		<if test="shKeyword != null and !shKeyword.equals('')">AND nickname LIKE CONCAT('%', #{shKeyword}, '%')</if> 
+    </sql>
+    
+    <select id="selectOneCount" resultType="Integer">
+    	SELECT count(*)
+    	<include refid="selectCommon"></include>
+    </select>
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    	<include refid="abc"></include>
+    	<include refid="selectCommon"></include>
+    	LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+	    SELECT
+	    	<include refid="abc"></include>
+	    FROM
+	    	mymusicMember
+	    WHERE
+	    	seq = #{seq}
+    </select>
+    
+    <update id="update">
+    	UPDATE mymusicMember
+    	
+    	SET 
+    		name = #{name}
+    		, email = #{email}
+    		, password = #{password}
+    		, nickname = #{nickname}
+    		, phone = #{phone}
+    		, dob = #{dob}
+    		, point = #{point}
+    	WHERE
+    		seq = #{seq}
+    </update>
+    
+    <insert id="insert">
+    	INSERT INTO `mymusicMember`(
+    		name
+			, email
+			, password
+			, nickname
+			, phone
+			, dob
+			, point
+			, delNy
+		) VALUES (
+			#{name}
+			, #{email}
+			, #{password}
+			, #{nickname}
+			, #{phone}
+			, #{dob}
+			, 0
+			, 1
+		)
+    </insert>
+    
+    
+    <delete id="delete">
+    	UPDATE mymusicMember
+    	
+    	SET 
+    		delNy = 0
+    	WHERE
+    		seq = #{seq}
+    		AND nickname = #{nickname}
+    </delete>
+
+</mapper>    
