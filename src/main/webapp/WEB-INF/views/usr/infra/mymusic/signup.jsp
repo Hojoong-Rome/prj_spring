@@ -33,31 +33,31 @@
                 <div class="row g-3">
                     <div class="col-auto mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" placeholder="name" class="form-control" id="name">
+                        <input type="text" placeholder="name" class="form-control" id="name" name="name">
                     </div> 
                     <div class="col-auto mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" placeholder="email@email.ema" class="form-control" id="email">
+                        <input type="email" placeholder="email@email.ema" class="form-control" id="email" name="email">
                     </div>
                 </div>
                 <div class="row g-3 ">
                     <div class="col-auto mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" placeholder="8~16 eng and num" class="form-control" id="password">
+                        <input type="password" placeholder="8~16 eng and num" class="form-control" id="password" name="password">
                     </div>
                     <div class="col-auto mb-3">
                         <label for="nickname" class="form-label">Nickname</label>
-                        <input type="text" placeholder="nickname" class="form-control" id="nickname">
+                        <input type="text" placeholder="nickname" class="form-control" id="nickname" name="nickname">
                     </div>
                 </div>
                 <div class="row g-3">
                     <div class="col-auto mb-3">
                         <label for="phone" class="form-label">Phone</label>
-                        <input type="text" placeholder="000-0000-0000" class="form-control" id="phone">
+                        <input type="text" placeholder="000-0000-0000" class="form-control" id="phone" name="phone">
                     </div>
                     <div class="col-auto mb-3">
                         <label for="dob" class="form-label">Birthday</label>
-                        <input type="text" placeholder="YYYYMMDD" class="form-control" id="dob">
+                        <input type="text" placeholder="YYYYMMDD" class="form-control" id="dob" name="dob">
                     </div>
                 </div>
             </form>
@@ -66,5 +66,44 @@
             <button class="btn btn-primary" id="signInBtn" type="button">회원가입</button>
         </div>
     </div>
+	<script src="../../../../resources/js/validate.js"></script>
+    <script type="text/javascript">
+      
+	    var objNick = $("#nickname");
+		validationNick = function() {
+			console.log(objNick.val());
+			if (nickCheck(objNick) == false)
+				return false;
+		}
+		
+		var objPw = $("#password");
+		validationPw = function(){
+			console.log(objPw.val());
+			if(pwCheck(objPw) == false)
+				return false;
+		}
+		
+		var objEmail = $("#email");
+		validationEmail = function(){
+			console.log(objEmail.val());
+			if(emailCheck(objEmail) == false)
+				return false;
+		}
+			
+		$("#signInBtn").on("click", function(){
+			if (validationNick() == false)
+				return false;
+			if (validationPw() == false)
+				return false;
+			if (validationEmail() == false)
+				return false;
+	         //$("form[name=formList]").attr("action", "get");
+	         $("form[name=form]").attr("action", "/myMusicInsert").submit();
+	         
+		});   
+      
+      
+   
+   </script>
 </body>
 </html>

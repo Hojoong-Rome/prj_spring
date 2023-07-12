@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" id="signInBtn" type="button">회원가입</button>
+            <a href="mymusicSignup"><button class="btn btn-primary" id="signInBtn" type="button">회원가입</button></a>
         </div>
     </div>
     <div class="mypage">
@@ -57,24 +57,60 @@
         </a>
         <div class="mypageContent">
             <div class="row g-3 align-items-center">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" id="accountSave">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        계정을 저장합니다
-                    </label>
-                </div>
-                <button type="button" class="btn btn-primary" id="loginBtn">LOGIN</button>
+	            <form name="form" method="post">
+	                <div class="form-floating mb-3">
+	                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+	                    <label for="floatingInput">Email</label>
+	                </div>
+	                <div class="form-floating">
+	                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+	                    <label for="floatingPassword">Password</label>
+	                </div>
+	                <div class="form-check">
+	                    <input class="form-check-input" type="checkbox" value="1" id="accountSave">
+	                    <label class="form-check-label" for="flexCheckDefault">
+	                        계정을 저장합니다
+	                    </label>
+	                </div>
+	                <button type="button" class="btn btn-primary" id="btnLogin">LOGIN</button>
+	            </form>
                 <a href="mymusicSignup"><button type="button" class="btn btn-info" id="signinBtn">SIGN UP</button></a>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+	    $("#btnLogin").on("click", function(){
+	    	
+	    	if(validation() == false) return false;
+	    	
+	    	$.ajax({
+	    		async: true 
+	    		,cache: false
+	    		,type: "post"
+	    		/* ,dataType:"json" */
+	    		,url: "/loginProc"
+	    		/* ,data : $("#formLogin").serialize() */
+	    		,data : { "email" : $("#email").val(),
+	    			"password" : $("#password").val()}
+	    		,success: function(response) {
+	    			if(response.rt == "success") {
+	    				alert(response.rtMyMusic.nickname);
+	    				location.href = "/mymusic";
+	    			} else {
+	    				alert("잘못된 회원 정보입니다.");
+	    			}
+	    		}
+	    		,error : function(jqXHR, textStatus, errorThrown){
+	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	    		}
+	    	});
+	    });
+	
+	
+	    validation = function() {
+	    	// if(!checkNull($("#email"), $.trim($("#email").val()), "아이디를 입력해 주세요!")) return false;
+	    	// if(!checkNull($("#password"), $.trim($("#password").val()), "비밀번호를 입력해 주세요!")) return false;
+	    }
+    </script>
 </body>
 </html>

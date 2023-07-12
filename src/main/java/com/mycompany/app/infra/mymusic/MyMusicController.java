@@ -1,14 +1,15 @@
 package com.mycompany.app.infra.mymusic;
 
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MyMusicController {
@@ -70,5 +71,22 @@ public class MyMusicController {
 		service.insert(dto);
 		
 		return "usr/infra/mymusic/index";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/loginProc")
+	public Map<String, Object> loginProc(MyMusicVo vo){
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		MyMusic rtMyMusic = service.selectOne(vo);
+		
+		if(rtMyMusic != null) {
+			returnMap.put("rtMyMusic", rtMyMusic);
+			returnMap.put("rt", "success");
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		
+		return returnMap;
 	}
 }
