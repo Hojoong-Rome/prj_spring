@@ -52,8 +52,8 @@
     <div class="mypage">
         <a href="#">
             <div class="mypageModal">
-                    <i class="fa-solid fa-user"></i>
-            </div>  
+            	<i class="fa-solid fa-user"></i>
+            </div>
         </a>
         <div class="mypageContent">
             <div class="row g-3 align-items-center">

@@ -116,6 +116,7 @@
 	    		,success: function(response) {
 	    			if ($("#email").val() == null || $("#email").val() == "") {
 	    				alert("이메일을 입력하세요");
+	    				return false;
 	    			} else {
 		    			if(response.rt == "available") {
 		    				alert("사용가능");
