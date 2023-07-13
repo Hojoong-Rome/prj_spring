@@ -14,6 +14,12 @@ public class MyMusicServiceImpl implements MyMusicService {
 		
 	}
 	
+	@Override
+	public int selectOneCheckId(MyMusicVo vo) {
+		// TODO Auto-generated method stub
+		return dao.selectOneCheckId(vo);
+	}
+	
 	@Autowired
 	MyMusicDao dao;
 	

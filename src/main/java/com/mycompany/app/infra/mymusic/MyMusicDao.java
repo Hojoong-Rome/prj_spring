@@ -18,6 +18,9 @@ public class MyMusicDao {
 	
 	private static String namespace="com.mycompany.app.infra.mymusic.MyMusicMapper";
 	
+	 public int selectOneCheckId(MyMusicVo vo) {
+	    	return sqlSession.selectOne(namespace + ".selectOneCheckId", vo);
+	    }
 	
 	public int selectOneCount(MyMusicVo vo){ return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
 	

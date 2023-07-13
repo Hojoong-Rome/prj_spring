@@ -102,7 +102,29 @@
 	         
 		});   
       
-      
+		$("#email").on("blur", function(){
+	    	
+	    	
+	    	$.ajax({
+	    		async: true 
+	    		,cache: false
+	    		,type: "post"
+	    		/* ,dataType:"json" */
+	    		,url: "/checkIdProc"
+	    		/* ,data : $("#formLogin").serialize() */
+	    		,data : { "email" : $("#email").val()}
+	    		,success: function(response) {
+	    			if(response.rt == "available") {
+	    				alert("사용가능")
+	    			} else {
+	    				alert("중복");
+	    			}
+	    		}
+	    		,error : function(jqXHR, textStatus, errorThrown){
+	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	    		}
+	    	});
+	    });
    
    </script>
 </body>

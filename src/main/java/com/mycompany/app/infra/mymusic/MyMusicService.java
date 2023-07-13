@@ -10,6 +10,8 @@ public interface MyMusicService {
 	
 	public MyMusic selectOne(MyMusicVo vo);
 
+	public int selectOneCheckId(MyMusicVo vo);
+	
 	public int update(MyMusic dto);
 	
 	public int delete(MyMusic dto);
