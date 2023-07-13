@@ -68,6 +68,15 @@
     		seq = #{seq}
     </update>
     
+    <select id="selectOneCheckId" resultType="Integer">
+  		SELECT
+			COUNT(seq)
+  		FROM
+  			mymusicMember
+  		WHERE 1=1
+  			AND	email=#{email}
+    </select>
+  
     <insert id="insert">
     	INSERT INTO `mymusicMember`(
     		name

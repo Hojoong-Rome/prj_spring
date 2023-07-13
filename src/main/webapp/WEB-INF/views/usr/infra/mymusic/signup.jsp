@@ -114,10 +114,14 @@
 	    		/* ,data : $("#formLogin").serialize() */
 	    		,data : { "email" : $("#email").val()}
 	    		,success: function(response) {
-	    			if(response.rt == "available") {
-	    				alert("사용가능")
+	    			if ($("#email").val() == null || $("#email").val() == "") {
+	    				alert("이메일을 입력하세요");
 	    			} else {
-	    				alert("중복");
+		    			if(response.rt == "available") {
+		    				alert("사용가능");
+		    			} else {
+		    				alert("중복");
+		    			}
 	    			}
 	    		}
 	    		,error : function(jqXHR, textStatus, errorThrown){

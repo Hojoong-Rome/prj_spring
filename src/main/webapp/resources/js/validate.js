@@ -20,7 +20,7 @@ check = function(obj){
 nickCheck = function(obj){
 	aaa = /^[가-힇a-z0-9]{2,10}$/;
 	
-	if(aaa.text($.trim(obj.val())) == false){
+	if(aaa.test($.trim(obj.val())) == false){
 		$("#nickname").focus();
 		return false;
 	}else{
@@ -31,7 +31,7 @@ nickCheck = function(obj){
 pwCheck = function(obj){
 	bbb = /^[a-z0-9]{2,14}$/;
 	
-	if(bbb.text($.trim(obj.val())) == false){
+	if(bbb.test($.trim(obj.val())) == false){
 		$("#password").focus();
 		return false;
 	}else{
@@ -42,7 +42,7 @@ pwCheck = function(obj){
 emailCheck = function(obj){
 	ccc = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
 	
-	if(ccc.text($.trim(obj.val())) == false){
+	if(ccc.test($.trim(obj.val())) == false){
 		$("#email").focus();
 		return false;
 	}else{

@@ -103,7 +103,7 @@ public class MyMusicController {
 		
 		int rtNum = service.selectOneCheckId(vo);
 		
-		if(rtNum ==0) {
+		if(rtNum == 0) {
 			returnMap.put("rt","available");
 			
 		}else {

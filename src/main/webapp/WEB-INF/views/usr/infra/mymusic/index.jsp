@@ -72,7 +72,17 @@
 	                        계정을 저장합니다
 	                    </label>
 	                </div>
-	                <button type="button" class="btn btn-primary" id="btnLogin">LOGIN</button>
+	                <c:choose>
+	                	<c:when test="${not empty sessionId }">
+	                		sessionId: <c:out value="${sessionId }"/>
+	                		<button type="button" class="btn btn-primary" id="btnLogout">LOGOUT</button>
+	                	</c:when>
+	                	<c:otherwise>
+	                		<button type="button" class="btn btn-primary" id="btnLogin">LOGIN</button>
+	                		<br>
+	                	</c:otherwise>
+	                </c:choose>
+	                
 	            </form>
                 <a href="mymusicSignup"><button type="button" class="btn btn-info" id="signinBtn">SIGN UP</button></a>
             </div>
@@ -106,13 +116,33 @@
 	    	});
 	    });
 	    
+	    
+		$("#btnLogout").on("click", function(){
+			$.ajax({
+	    		async: true 
+	    		,cache: false
+	    		,type: "post"
+	    		/* ,dataType:"json" */
+	    		,url: "/logoutProc"
+	    		/* ,data : $("#formLogin").serialize() */
+	    		,data : { }
+	    		,success: function(response) {
+	    				location.href = "/mymusic";
+	    		}
+	    		
+	    		,error : function(jqXHR, textStatus, errorThrown){
+	    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	    		}
+	    	});
+		});
+	    
 		
 	
 	
 	    validation = function() {
-	    	// if(!checkNull($("#email"), $.trim($("#email").val()), "아이디를 입력해 주세요!")) return false;
-	    	// if(!checkNull($("#password"), $.trim($("#password").val()), "비밀번호를 입력해 주세요!")) return false;
-	    }
+//	    	if(!checkNull($("#email"), $.trim($("#email").val()), "아이디를 입력해 주세요!")) return false;
+//	    	if(!checkNull($("#password"), $.trim($("#password").val()), "비밀번호를 입력해 주세요!")) return false;
+	    } 
     </script>
 </body>
 </html>
