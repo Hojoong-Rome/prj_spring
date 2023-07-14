@@ -101,7 +101,7 @@
 	         $("form[name=form]").attr("action", "/myMusicInsert").submit();
 	         
 		});   
-      
+      	
 		$("#email").on("blur", function(){
 	    	
 	    	
