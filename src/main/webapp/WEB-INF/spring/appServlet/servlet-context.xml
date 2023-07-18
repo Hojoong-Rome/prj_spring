@@ -24,5 +24,17 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.mycompany.app" />
-	
+	<!-- session interceptor s 2023. 07. 18 for logincheck -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/resources/**"/>
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/adminLogin"/>
+			<exclude-mapping path="/mymusic"/>
+			<exclude-mapping path="/checkIdProc"/>
+			<exclude-mapping path="/loginProc"/>
+			<beans:bean id="checkLoginSessionInterception" class="com.mycompany.app.common.intercept.CheckLoginSessionInterception"></beans:bean>
+		</interceptor>
+	</interceptors>
 </beans:beans>
