@@ -1,11 +1,12 @@
 package com.mycompany.app.infra.code;
 
 import java.util.List;
+import java.util.ArrayList;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.mycompany.app.infra.codegroup.CodeGroupVo;
 
 @Service
 public class CodeServiceImpl implements CodeService {
@@ -41,4 +42,17 @@ public class CodeServiceImpl implements CodeService {
 		return dao.insert(dto);
 	}
 	
+	@PostConstruct
+	public void selectListCachedCodeArrayList() throws Exception{
+		List<Code> codeListFromDb = (ArrayList<Code>) dao.selectListCachedCodeArrayList();
+		codeListFromDb = (ArrayList<Code>) dao.selectListCachedCodeArrayList();
+		Code.cachedCodeArrayList.clear();
+		Code.cachedCodeArrayList.addAll(codeListFromDb);
+		System.out.println("cachedCodeArrayList" + " = " + Code.cachedCodeArrayList.size());
+		
+	}
+	
+	public static void clear() throws Exception{
+		Code.cachedCodeArrayList.clear();
+	}
 }

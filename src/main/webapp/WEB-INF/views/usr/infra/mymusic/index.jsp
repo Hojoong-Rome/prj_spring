@@ -21,7 +21,7 @@
         <div class="btnContainer">
             <div class="d-grid gap-2 d-md-block">
                 <a href="#"><button class="btn btn-secondary" type="button">Main</button></a>
-                <a href="sub/sub01.html"><button class="btn btn-secondary" type="button">AI</button></a>
+                <a href="mymusicAi"><button class="btn btn-secondary" type="button">AI</button></a>
                 <a href="sub/sub02.html"><button class="btn btn-secondary" type="button">Write</button></a>
                 <a href="sub/sub03.html"><button class="btn btn-secondary" type="button">Notice</button></a>
             </div>
@@ -44,9 +44,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed blandit nibh. Aliquam erat volutpat. Suspendisse potenti.</p>
                 <button class="btn btn-primary" type="submit">Button</button>
             </div>
-        </div>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="mymusicSignup"><button class="btn btn-primary" id="signInBtn" type="button">회원가입</button></a>
         </div>
     </div>
     <div class="mypage">

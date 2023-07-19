@@ -46,7 +46,7 @@
     </select>
     
     <update id="update">
-    	UPDATE codeGroup
+    	UPDATE code
     	
     	SET 
     		name = #{name}
@@ -67,7 +67,7 @@
     </insert>
     
     <delete id="delete">
-    	UPDATE codeGroup
+    	UPDATE code
     	
     	SET 
     		delNy = 0
@@ -75,5 +75,16 @@
     		seq = #{seq}
     		AND name = #{name}
     </delete>
-
+	
+	<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT
+			seq
+			, name
+			, codeGroup_seq
+		FROM
+			code
+		WHERE 1=1
+			AND delNy = 1
+	</select>
+	
 </mapper>    

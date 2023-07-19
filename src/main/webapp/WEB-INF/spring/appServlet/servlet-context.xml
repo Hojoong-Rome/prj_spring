@@ -34,6 +34,8 @@
 			<exclude-mapping path="/mymusic"/>
 			<exclude-mapping path="/checkIdProc"/>
 			<exclude-mapping path="/loginProc"/>
+			<exclude-mapping path="/mymusicSignup"/>
+			<exclude-mapping path="/myMusicInsert"/>
 			<beans:bean id="checkLoginSessionInterception" class="com.mycompany.app.common.intercept.CheckLoginSessionInterception"></beans:bean>
 		</interceptor>
 	</interceptors>

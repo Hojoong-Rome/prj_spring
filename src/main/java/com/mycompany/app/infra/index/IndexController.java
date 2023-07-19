@@ -57,4 +57,9 @@ public class IndexController {
 	public String myMusicSignup() {
 		return "usr/infra/mymusic/signup";
 	}
+	
+	@RequestMapping("/mymusicAi")
+	public String mymusicAi() {
+		return "usr/infra/mymusic/sub1";
+	}
 }
