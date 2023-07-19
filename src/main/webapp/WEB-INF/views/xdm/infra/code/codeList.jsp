@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.mycompany.app.infra.code.CodeServiceImpl"/>
 
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
@@ -57,6 +58,7 @@
     	}
     </style>
   </head>
+  	
   <body>
     <div
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
@@ -1033,10 +1035,19 @@
                 </span>
               </div>
               <a href="codeInsertPage"><button id="btnInsert" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">Insert</button></a>
-            </div>
-
-            <!-- With actions -->
+            </div>            
             
+            
+            
+            <!-- 
+			<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('1')}"/>
+  	
+		  	<c:forEach items="${listCodeGender}" var="list" varStatus="status">
+		  		<c:out value="${list.name}"/>
+		  	</c:forEach>
+		  	 -->
+		  	 
+		  	             
             
             </div>
           </div>
