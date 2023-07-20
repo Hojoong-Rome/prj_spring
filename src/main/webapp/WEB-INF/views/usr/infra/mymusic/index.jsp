@@ -56,11 +56,11 @@
             <div class="row g-3 align-items-center">
 	            <form name="form" method="post">
 	                <div class="form-floating mb-3">
-	                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+	                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="admin@admin.com">
 	                    <label for="floatingInput">Email</label>
 	                </div>
 	                <div class="form-floating">
-	                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+	                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="admin0119">
 	                    <label for="floatingPassword">Password</label>
 	                </div>
 	                <div class="form-check">
