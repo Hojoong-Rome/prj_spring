@@ -63,13 +63,4 @@ public class IndexController {
 		return "usr/infra/mymusic/sub1";
 	}
 	
-	@RequestMapping("/mymusicComm")
-	public String mymusicComm() {
-		return "usr/infra/mymusic/sub3";
-	}
-	
-	@RequestMapping("/mymusicWrite")
-	public String mymusicWrite() {
-		return "usr/infra/mymusic/sub2";
-	}
 }

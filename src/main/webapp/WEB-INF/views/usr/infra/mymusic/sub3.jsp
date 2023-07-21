@@ -44,30 +44,61 @@
                         <th>view</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th><a href="#">우와 신나요</a></th>
-                        <th>Romero</th>
-                        <th>2023. 06. 21.</th>
-                        <th>2</th>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th><a href="#">집에가고싶다</a></th>
-                        <th>Hojoong</th>
-                        <th>2023. 06. 22.</th>
-                        <th>1</th>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <th><a href="#">락앤롤~~</a></th>
-                        <th>Jongweon</th>
-                        <th>2023. 06. 27.</th>
-                        <th>8</th>
-                    </tr>
-                </tbody>
+                <c:choose>
+                	<c:when test="${fn:length(list) eq 0}">
+                		등록된 게시글이 없습니다.
+                	</c:when>
+                	<c:otherwise>
+	                	<c:forEach items="${list}" var="list" varStatus="status">
+			                <tbody>
+			                    <tr>
+			                        <th><c:out value="${list.seq}"/></th>
+			                        <th><a href="#"><c:out value="${list.header }"/></a></th>
+			                        <th><c:out value="${list.writer }"/></th>
+			                        <th><c:out value="${list.date }"/></th>
+			                        <th><c:out value="${list.number }"/></th>
+			                    </tr>
+			                </tbody>	
+		                </c:forEach>
+	                </c:otherwise>
+                </c:choose>
             </table>
+            <c:if test="${vo.startPage gt vo.pageNumToShow}">
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
+                        >
+                          <a class="page-link" href="javascript:goList(${vo.startPage - 1})">
+                          1
+                         </a>
+                        </button>
+                      </li>
+                      </c:if>
+                      <c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+							<c:choose>
+								<c:when test="${i.index eq vo.thisPage}">
+						                <li class="page-item active"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
+								</c:when>
+								<c:otherwise>             
+						                <li class="page-item"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>                
+						<c:if test="${vo.endPage ne vo.totalPages}">                
+						                <li class="page-item"><a class="page-link" href="javascript:goList(${vo.endPage + 1})"><i class="fa-solid fa-angle-right"></i></a></li>
+						</c:if>
+             <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
+	            <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+		          <select class="form-select" aria-label="typeSelect" name="shOption">
+		             <option value="1">제목</option>
+		          </select>
+		          <div id="searchBox">
+		             <label class="form-label"></label>
+		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search" value="<c:out value="${vo. shKeyword }"/>" >
+		          </div>
+		          <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+		       </form>
             <a href="mymusicWrite"><button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button></a>
         </div>
     </div>
@@ -98,5 +129,20 @@
             </div>
         </div>
     </div>
+    <script>
+	    $("#btnSubmit").on("click", function(){
+	        
+	        $("form[name=formList]").attr("method", "get");
+	        $("form[name=formList]").attr("action", "/myMusicNoticeList").submit();
+	        
+	        
+	     });
+	     
+	     
+	     goList = function(thisPage) {
+	 		$("input:hidden[name=thisPage]").val(thisPage);
+	 		$("form[name=formList]").attr("action", "/codeGroupList").submit();
+	     }
+    </script>
 </body>
 </html>

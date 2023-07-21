@@ -117,6 +117,37 @@ public class MyMusicNoticeVo {
 	}
 	
 	
+	public String getHeader() {
+		return header;
+	}
+	public void setHeader(String header) {
+		this.header = header;
+	}
+	public String getArticle() {
+		return article;
+	}
+	public void setArticle(String article) {
+		this.article = article;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public Integer getNumber() {
+		return number;
+	}
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+	
 	
 	//	===============================================
 	public void setParamsPaging(int totalRows) {
