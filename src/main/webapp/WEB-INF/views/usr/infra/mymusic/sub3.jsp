@@ -20,9 +20,9 @@
     <header>
         <div class="btnContainer">
             <div class="d-grid gap-2 d-md-block">
-                <a href="../index.html"><button class="btn btn-secondary" type="button">Main</button></a>
-                <a href="sub01.html"><button class="btn btn-secondary" type="button">AI</button></a>
-                <a href="sub02.html"><button class="btn btn-secondary" type="button">Write</button></a>
+                <a href="mymusic"><button class="btn btn-secondary" type="button">Main</button></a>
+                <a href="mymusicAi"><button class="btn btn-secondary" type="button">AI</button></a>
+                <a href="mymusicWrite"><button class="btn btn-secondary" type="button">Write</button></a>
                 <a href="#"><button class="btn btn-secondary" type="button">Notice</button></a>
             </div>
         </div>  

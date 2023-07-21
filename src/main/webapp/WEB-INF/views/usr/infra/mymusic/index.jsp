@@ -22,8 +22,8 @@
             <div class="d-grid gap-2 d-md-block">
                 <a href="#"><button class="btn btn-secondary" type="button">Main</button></a>
                 <a href="mymusicAi"><button class="btn btn-secondary" type="button">AI</button></a>
-                <a href="sub/sub02.html"><button class="btn btn-secondary" type="button">Write</button></a>
-                <a href="sub/sub03.html"><button class="btn btn-secondary" type="button">Notice</button></a>
+                <a href="mymusicWrite"><button class="btn btn-secondary" type="button">Write</button></a>
+                <a href="mymusicComm"><button class="btn btn-secondary" type="button">Notice</button></a>
             </div>
         </div>  
     </header>
@@ -55,20 +55,24 @@
         <div class="mypageContent">
             <div class="row g-3 align-items-center">
 	            <form name="form" method="post">
-	                <div class="form-floating mb-3">
-	                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="admin@admin.com">
-	                    <label for="floatingInput">Email</label>
-	                </div>
-	                <div class="form-floating">
-	                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="admin0119">
-	                    <label for="floatingPassword">Password</label>
-	                </div>
-	                <div class="form-check">
-	                    <input class="form-check-input" type="checkbox" value="1" id="accountSave">
-	                    <label class="form-check-label" for="flexCheckDefault">
-	                        계정을 저장합니다
-	                    </label>
-	                </div>
+	            	<c:choose>
+		            	<c:when test="${empty sessionId }">
+		                <div class="form-floating mb-3">
+		                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="admin@admin.com">
+		                    <label for="floatingInput">Email</label>
+		                </div>
+		                <div class="form-floating">
+		                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="admin0119">
+		                    <label for="floatingPassword">Password</label>
+		                </div>
+		                <div class="form-check">
+		                    <input class="form-check-input" type="checkbox" value="1" id="accountSave">
+		                    <label class="form-check-label" for="flexCheckDefault">
+		                        계정을 저장합니다
+		                    </label>
+		                </div>
+		                </c:when>
+	                </c:choose>
 	                <c:choose>
 	                	<c:when test="${not empty sessionId }">
 	                		sessionId: <c:out value="${sessionId }"/>
@@ -77,11 +81,11 @@
 	                	<c:otherwise>
 	                		<button type="button" class="btn btn-primary" id="btnLogin">LOGIN</button>
 	                		<br>
+                			<a href="mymusicSignup"><button type="button" class="btn btn-info" id="signinBtn">SIGN UP</button></a>
 	                	</c:otherwise>
 	                </c:choose>
 	                
 	            </form>
-                <a href="mymusicSignup"><button type="button" class="btn btn-info" id="signinBtn">SIGN UP</button></a>
             </div>
         </div>
     </div>

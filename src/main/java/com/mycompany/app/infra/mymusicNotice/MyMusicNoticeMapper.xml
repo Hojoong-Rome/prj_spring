@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    		       
+<mapper namespace="com.mycompany.app.infra.mymusicNotice.MyMusicNoticeMapper">
+<!-- 
+	전체 매퍼중에서 유일한 값을 사용하여야 한다.
+	해서 관계적으로 해당 파일의 패스와 파일 이름(확장자 제외)
+	그리고 dao에서 namespace와 일치하여야 한다.
+ -->
+									   
+    <resultMap id="resultMapObj" type="com.mycompany.app.infra.mymusicNotice.MyMusicNotice"></resultMap>
+    
+    <sql id="abc">
+	    seq
+	    , number
+    	, header
+    	, article
+    	, writer
+    	, date
+    </sql>
+    
+    <sql id="selectCommon">
+    	FROM 
+    		requestNotice
+    	WHERE 1=1
+    		<if test="shKeyword != null and !shKeyword.equals('')">AND header LIKE CONCAT('%', #{shKeyword}, '%')</if> 
+    </sql>
+    
+    <select id="selectOneCount" resultType="Integer">
+    	SELECT count(*)
+    	<include refid="selectCommon"></include>
+    </select>
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    	<include refid="abc"></include>
+    	<include refid="selectCommon"></include>
+    	LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+	    SELECT
+	    	<include refid="abc"></include>
+	    FROM
+	    	requestNotice
+	    WHERE
+	    	header  = #{header}
+	    	AND seq = #{seq}
+    </select>
+    
+    <update id="update">
+    	UPDATE requestNotice
+    	
+    	SET 
+    		header = #{header}
+    		, article = #{article}
+    		, writer = #{writer}
+    		, date = #{date}
+    	WHERE
+    		seq = #{seq}
+    </update>
+    
+  
+    <insert id="insert">
+    	INSERT INTO requestNotice(
+			number
+    		, header
+    		, article
+    		, writer
+    		, date
+		) VALUES (
+			0
+    		, #{header}
+			, #{article}
+			, #{writer}
+			, #{date}
+		)
+    </insert>
+    
+    
+    <delete id="delete">
+    	UPDATE requestNotice
+    	
+    	SET 
+    		delNy = 0
+    	WHERE
+    		seq = #{seq}
+    		AND header = #{header}
+    </delete>
+
+</mapper>    
