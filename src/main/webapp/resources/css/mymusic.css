@@ -4,6 +4,15 @@
     margin: 0;
     padding: 0;
 }
+a{
+	text-decoration: none;
+	color: white;
+}
+
+.whiteText{
+	text-decoration: none;
+	color: white;
+}
 
 .btnContainer{
     width: 500px;
@@ -106,6 +115,7 @@ p{
 #writeBtn{
     margin-top: 10px;
     float: right;
+    cursor: pointer;
 }
 table{
     margin-top: 10px;

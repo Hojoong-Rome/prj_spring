@@ -63,4 +63,8 @@ public class IndexController {
 		return "usr/infra/mymusic/sub1";
 	}
 	
+	@RequestMapping("/mymusicNoticeInsertPage")
+	public String mymusicNoticeInsertPage() {
+		return "usr/infra/mymusic/sub2";
+	}
 }

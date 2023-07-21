@@ -32,17 +32,17 @@
             <div class="article1">
                 <h3>AI로 음악 생성</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed blandit nibh. Aliquam erat volutpat. Suspendisse potenti.</p>
-                <button class="btn btn-primary" type="submit">Button</button>
+                <button class="btn btn-primary" type="button"><a href="mymusicAi" class="whiteText">Button</a></button>
             </div>
             <div class="article2">
                 <h3>음악 제작 의뢰하기</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed blandit nibh. Aliquam erat volutpat. Suspendisse potenti.</p>
-                <button class="btn btn-primary" type="submit">Button</button>
+                <button class="btn btn-primary" type="button"><a href="mymusicNoticeInsertPage" class="whiteText">Button</a></button>
             </div>
             <div class="article3">
                 <h3>내 음악 업로드하기</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed blandit nibh. Aliquam erat volutpat. Suspendisse potenti.</p>
-                <button class="btn btn-primary" type="submit">Button</button>
+                <button class="btn btn-primary" type="button"><a href="myMusicNoticeList" class="whiteText">Button</a></button>
             </div>
         </div>
     </div>

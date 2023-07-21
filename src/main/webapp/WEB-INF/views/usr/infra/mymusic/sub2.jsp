@@ -29,21 +29,24 @@
     </header>
     <div class="container">
         <div class="sub02Container">
-            <div class="mb-3">
-                <label for="titleInput" class="form-label"></label>
-                <input type="text" class="form-control" id="titleInput" placeholder="제목">
-            </div>
-            <select class="form-select" aria-label="writeType">
-                <option selected >게시판</option>
-                <option value="1">요청</option>
-                <option value="2">업로드</option>
-                <option value="3">후기</option>
-            </select>
-            <div class="mb-3">
-                <label for="noticeInput" class="form-label"></label>
-                <input type="text" class="form-control" id="noticeInput"></input>
-                <button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button>
-            </div>
+        	<form name="form" method="post">
+	            <div class="mb-3">
+	                <input type="text" class="form-control" name="header" id="header" placeholder="제목">
+	            </div>
+	            <select class="form-select" aria-label="writeType">
+	                <option value="1" selected>요청</option>
+	                <option value="2">업로드</option>
+	                <option value="3">후기</option>
+	            </select>
+	            <div class="mb-3">
+	                <input type="text" class="form-control" name="writer" id="writer" value="<c:out value="${sessionId }"/>" readonly></input>
+	                <c:set var="ymd" value="<%=new java.util.Date()%>" />
+	                <input type="date" class="form-control" name="date" id="date" value="<fmt:formatDate value="${ymd}" pattern="yyyy-MM-dd" />" readonly></input>
+	                <input type="text" class="form-control" name="article" id="article"></input>
+	            </div>
+	            
+	            <button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button>
+            </form>
         </div>
     </div>
     <div class="mypage">
@@ -64,14 +67,17 @@
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="1" id="accountSave">
-                    <label class="form-check-label" for="flexCheckDefault">
                         계정을 저장합니다
-                    </label>
                 </div>
                 <button type="button" class="btn btn-primary" id="loginBtn">LOGIN</button>
                 <button type="button" class="btn btn-info" id="signinBtn">SIGN IN</button>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+	    $("#writeBtn").on("click", function() {
+			$("form[name=form]").attr("action", "/myMusicNoticeInsert").submit();
+		});
+    </script>
 </body>
 </html>

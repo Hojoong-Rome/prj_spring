@@ -554,7 +554,7 @@
 					if (validationInst() == false)
 						return false;
 					$("form[name=form]").attr("action", "/codeGroupInsert").submit();
-				});
+		});
 	</script>
 </body>
 </html>

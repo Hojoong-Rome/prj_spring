@@ -15,6 +15,11 @@
     <script src="https://kit.fontawesome.com/b2daa60225.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="../../../../resources/js/mymusic.js"></script>
+    <style>
+    	li{
+    		list-style: none;
+    	}
+    </style>
 </head>
 <body>
     <header>
@@ -90,9 +95,11 @@
              <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
 	            <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+		          <!-- 
 		          <select class="form-select" aria-label="typeSelect" name="shOption">
 		             <option value="1">제목</option>
 		          </select>
+		           -->
 		          <div id="searchBox">
 		             <label class="form-label"></label>
 		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search" value="<c:out value="${vo. shKeyword }"/>" >
@@ -110,22 +117,38 @@
         </a>
         <div class="mypageContent">
             <div class="row g-3 align-items-center">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" id="accountSave">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        계정을 저장합니다
-                    </label>
-                </div>
-                <button type="button" class="btn btn-primary" id="loginBtn">LOGIN</button>
-                <button type="button" class="btn btn-info" id="signinBtn">SIGN IN</button>
+	            <form name="form" method="post">
+	            	<c:choose>
+		            	<c:when test="${empty sessionId }">
+		                <div class="form-floating mb-3">
+		                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="admin@admin.com">
+		                    <label for="floatingInput">Email</label>
+		                </div>
+		                <div class="form-floating">
+		                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="admin0119">
+		                    <label for="floatingPassword">Password</label>
+		                </div>
+		                <div class="form-check">
+		                    <input class="form-check-input" type="checkbox" value="1" id="accountSave">
+		                    <label class="form-check-label" for="flexCheckDefault">
+		                        계정을 저장합니다
+		                    </label>
+		                </div>
+		                </c:when>
+	                </c:choose>
+	                <c:choose>
+	                	<c:when test="${not empty sessionId }">
+	                		sessionId: <c:out value="${sessionId }"/>
+	                		<button type="button" class="btn btn-primary" id="btnLogout">LOGOUT</button>
+	                	</c:when>
+	                	<c:otherwise>
+	                		<button type="button" class="btn btn-primary" id="btnLogin">LOGIN</button>
+	                		<br>
+                			<a href="mymusicSignup"><button type="button" class="btn btn-info" id="signinBtn">SIGN UP</button></a>
+	                	</c:otherwise>
+	                </c:choose>
+	                
+	            </form>
             </div>
         </div>
     </div>
@@ -141,8 +164,63 @@
 	     
 	     goList = function(thisPage) {
 	 		$("input:hidden[name=thisPage]").val(thisPage);
-	 		$("form[name=formList]").attr("action", "/codeGroupList").submit();
+	 		$("form[name=formList]").attr("action", "/myMusicNoticeList").submit();
 	     }
+	     
+	     $("#btnLogin").on("click", function(){
+		    	
+		    	if(validation() == false) return false;
+		    	
+		    	$.ajax({
+		    		async: true 
+		    		,cache: false
+		    		,type: "post"
+		    		/* ,dataType:"json" */
+		    		,url: "/loginProc"
+		    		/* ,data : $("#formLogin").serialize() */
+		    		,data : { "email" : $("#email").val(),
+		    			"password" : $("#password").val()}
+		    		,success: function(response) {
+		    			if(response.rt == "success") {
+		    				alert(response.rtMyMusic.nickname);
+		    				location.href = "/mymusic";
+		    			} else {
+		    				alert("잘못된 회원 정보입니다.");
+		    			}
+		    		}
+		    		,error : function(jqXHR, textStatus, errorThrown){
+		    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		    		}
+		    	});
+		    });
+		    
+		    
+			$("#btnLogout").on("click", function(){
+				$.ajax({
+		    		async: true 
+		    		,cache: false
+		    		,type: "post"
+		    		/* ,dataType:"json" */
+		    		,url: "/logoutProc"
+		    		/* ,data : $("#formLogin").serialize() */
+		    		,data : { }
+		    		,success: function(response) {
+		    				location.href = "/mymusic";
+		    		}
+		    		
+		    		,error : function(jqXHR, textStatus, errorThrown){
+		    			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		    		}
+		    	});
+			});
+		    
+			
+		
+		
+		    validation = function() {
+//		    	if(!checkNull($("#email"), $.trim($("#email").val()), "아이디를 입력해 주세요!")) return false;
+//		    	if(!checkNull($("#password"), $.trim($("#password").val()), "비밀번호를 입력해 주세요!")) return false;
+		    } 
     </script>
 </body>
 </html>
