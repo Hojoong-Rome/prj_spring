@@ -27,7 +27,7 @@
             <div class="d-grid gap-2 d-md-block">
                 <a href="mymusic"><button class="btn btn-secondary" type="button">Main</button></a>
                 <a href="mymusicAi"><button class="btn btn-secondary" type="button">AI</button></a>
-                <a href="mymusicWrite"><button class="btn btn-secondary" type="button">Write</button></a>
+                <a href="mymusicNoticeInsertPage"><button class="btn btn-secondary" type="button">Write</button></a>
                 <a href="#"><button class="btn btn-secondary" type="button">Notice</button></a>
             </div>
         </div>  
@@ -106,7 +106,7 @@
 		          </div>
 		          <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
 		       </form>
-            <a href="mymusicWrite"><button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button></a>
+            <a href="mymusicNoticeInsertPage"><button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button></a>
         </div>
     </div>
     <div class="mypage">

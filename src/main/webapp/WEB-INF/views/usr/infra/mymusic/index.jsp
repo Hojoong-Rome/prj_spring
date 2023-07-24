@@ -21,9 +21,9 @@
         <div class="btnContainer">
             <div class="d-grid gap-2 d-md-block">
                 <a href="#"><button class="btn btn-secondary" type="button">Main</button></a>
-                <a href="mymusicAi"><button class="btn btn-secondary" type="button">AI</button></a>
-                <a href="mymusicWrite"><button class="btn btn-secondary" type="button">Write</button></a>
-                <a href="myMusicNoticeList"><button class="btn btn-secondary" type="button">Notice</button></a>
+                <a href="javascript:void(0);" onclick="checkLogin('mymusicAi')"><button class="btn btn-secondary" type="button">AI</button></a>
+                <a href="javascript:void(0);" onclick="checkLogin('mymusicNoticeInsertPage')"><button class="btn btn-secondary" type="button">Write</button></a>
+                <a href="javascript:void(0);" onclick="checkLogin('myMusicNoticeList')"><button class="btn btn-secondary" type="button">Notice</button></a>
             </div>
         </div>  
     </header>
@@ -105,7 +105,6 @@
 	    			"password" : $("#password").val()}
 	    		,success: function(response) {
 	    			if(response.rt == "success") {
-	    				alert(response.rtMyMusic.nickname);
 	    				location.href = "/mymusic";
 	    			} else {
 	    				alert("잘못된 회원 정보입니다.");
@@ -144,6 +143,21 @@
 //	    	if(!checkNull($("#email"), $.trim($("#email").val()), "아이디를 입력해 주세요!")) return false;
 //	    	if(!checkNull($("#password"), $.trim($("#password").val()), "비밀번호를 입력해 주세요!")) return false;
 	    } 
+
+	    
+	    function checkLogin(pageName) {
+	        <c:choose>
+	            <c:when test="${sessionId == null}">
+	                alert("<c:out value='로그인 후에 이용 가능합니다'/>");
+	                window.location.href = "/mymusic";
+	            </c:when>
+	            <c:otherwise>
+	                window.location.href = pageName;
+	            </c:otherwise>
+	            
+	        </c:choose>
+	    }
+
     </script>
 </body>
 </html>

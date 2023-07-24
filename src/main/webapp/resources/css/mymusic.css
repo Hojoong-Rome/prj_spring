@@ -112,7 +112,7 @@ p{
 #noticeInput{
     height: 280px;
 }
-#writeBtn{
+a #writeBtn{
     margin-top: 10px;
     float: right;
     cursor: pointer;
