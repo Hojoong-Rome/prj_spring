@@ -43,6 +43,8 @@
 	                <c:set var="ymd" value="<%=new java.util.Date()%>" />
 	                <input type="date" class="form-control" name="date" id="date" value="<fmt:formatDate value="${ymd}" pattern="yyyy-MM-dd" />" readonly></input>
 	                <input type="text" class="form-control" name="article" id="article"></input>
+	                <input type="file" class="form-control" name="file" id="file" multiple>
+	                <input type="file" class="form-control" accept="image/*" required multiple style="height: 100px;">
 	            </div>
 	            
 	            <button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button>
