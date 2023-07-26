@@ -21,9 +21,9 @@
         <div class="btnContainer">
             <div class="d-grid gap-2 d-md-block">
                 <a href="mymusic"><button class="btn btn-secondary" type="button">Main</button></a>
-                <a href="#"><button class="btn btn-secondary" type="button">AI</button></a>
-                <a href="mymusicNoticeInsertPage"><button class="btn btn-secondary" type="button">Write</button></a>
-                <a href="myMusicNoticeList"><button class="btn btn-secondary" type="button">Notice</button></a>
+                <a href="#"><button class="btn btn-secondary" type="button">MusicAI</button></a>
+                <a href="myMusicNoticeList"><button class="btn btn-secondary" type="button">Request</button></a>
+                <a href="myMusicUploadList"><button class="btn btn-secondary" type="button">Upload</button></a>
             </div>
         </div>  
     </header>

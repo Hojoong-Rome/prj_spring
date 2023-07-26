@@ -28,7 +28,7 @@
                 <a href="mymusic"><button class="btn btn-secondary" type="button">Main</button></a>
                 <a href="mymusicAi"><button class="btn btn-secondary" type="button">MusicAI</button></a>
                 <a href="myMusicNoticeList"><button class="btn btn-secondary" type="button">Request</button></a>
-                <a href="myMusicUploadList"><button class="btn btn-secondary" type="button">Upload</button></a>
+                <a href="#"><button class="btn btn-secondary" type="button">Upload</button></a>
             </div>
         </div>  
     </header>
@@ -156,7 +156,7 @@
 	    $("#btnSubmit").on("click", function(){
 	        
 	        $("form[name=formList]").attr("method", "get");
-	        $("form[name=formList]").attr("action", "/myMusicNoticeList").submit();
+	        $("form[name=formList]").attr("action", "/myMusicUploadList").submit();
 	        
 	        
 	     });
@@ -164,7 +164,7 @@
 	     
 	     goList = function(thisPage) {
 	 		$("input:hidden[name=thisPage]").val(thisPage);
-	 		$("form[name=formList]").attr("action", "/myMusicNoticeList").submit();
+	 		$("form[name=formList]").attr("action", "/myMusicUploadList").submit();
 	     }
 	     
 	     $("#btnLogin").on("click", function(){

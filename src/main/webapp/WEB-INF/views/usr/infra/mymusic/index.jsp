@@ -21,9 +21,9 @@
         <div class="btnContainer">
             <div class="d-grid gap-2 d-md-block">
                 <a href="#"><button class="btn btn-secondary" type="button">Main</button></a>
-                <a href="javascript:void(0);" onclick="checkLogin('mymusicAi')"><button class="btn btn-secondary" type="button">AI</button></a>
-                <a href="javascript:void(0);" onclick="checkLogin('mymusicNoticeInsertPage')"><button class="btn btn-secondary" type="button">Write</button></a>
-                <a href="javascript:void(0);" onclick="checkLogin('myMusicNoticeList')"><button class="btn btn-secondary" type="button">Notice</button></a>
+                <a href="javascript:void(0);" onclick="checkLogin('mymusicAi')"><button class="btn btn-secondary" type="button">MusicAI</button></a>
+                <a href="javascript:void(0);" onclick="checkLogin('myMusicNoticeList')"><button class="btn btn-secondary" type="button">Request</button></a>
+                <a href="javascript:void(0);" onclick="checkLogin('myMusicUploadList')"><button class="btn btn-secondary" type="button">Upload</button></a>
             </div>
         </div>  
     </header>
@@ -147,9 +147,10 @@
 	    
 	    function checkLogin(pageName) {
 	        <c:choose>
+	        
 	            <c:when test="${sessionId == null}">
 	                alert("<c:out value='로그인 후에 이용 가능합니다'/>");
-	                window.location.href = "/mymusic";
+	                $('.mypageContent').show();
 	            </c:when>
 	            <c:otherwise>
 	                window.location.href = pageName;
