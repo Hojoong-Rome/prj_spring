@@ -33,11 +33,6 @@
 	            <div class="mb-3">
 	                <input type="text" class="form-control" name="header" id="header" placeholder="제목">
 	            </div>
-	            <select class="form-select" aria-label="writeType">
-	                <option value="1" selected>요청</option>
-	                <option value="2">업로드</option>
-	                <option value="3">후기</option>
-	            </select>
 	            <div class="mb-3">
 	                <input type="text" class="form-control" name="writer" id="writer" value="<c:out value="${sessionId }"/>" readonly></input>
 	                <c:set var="ymd" value="<%=new java.util.Date()%>" />
