@@ -18,7 +18,7 @@ public class MyMusicUploadVo {
 	
 	private int thisPage = 1;
 	
-	private int rowNumToShow = 10;
+	private int rowNumToShow = 7;
 	private int pageNumToShow = 5;
 	
 	private int totalRows;

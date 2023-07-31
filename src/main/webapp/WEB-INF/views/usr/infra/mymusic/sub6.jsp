@@ -63,7 +63,7 @@
     </div>
     <script type="text/javascript">
 	    $("#returnBtn").on("click", function() {
-			window.location.href="/myMusicNoticeList";
+			window.location.href="/myMusicUploadList";
 		});
     </script>
 </body>

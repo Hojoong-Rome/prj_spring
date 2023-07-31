@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.app.infra.mymusicNotice.MyMusicNoticeVo;
+
 @Controller
 public class MyMusicUploadController {
 
@@ -48,6 +50,15 @@ public class MyMusicUploadController {
 		model.addAttribute("item", service.selectOne(vo));
 		
 		return "usr/infra/mymusic/sub2";
+	}
+	
+	@RequestMapping("/myMusicUploadView")
+	public String myMusicUploadView(MyMusicUploadVo vo, Model model) {
+								//HttpServletRequest httpServletRequest, 
+		
+		model.addAttribute("item", service.selectOne(vo));
+		
+		return "usr/infra/mymusic/sub6";
 	}
 	
 	@RequestMapping("/myMusicUploadUpdt")

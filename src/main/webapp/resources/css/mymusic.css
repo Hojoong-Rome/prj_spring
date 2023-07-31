@@ -59,7 +59,7 @@ a{
 }
 .sub02Container{
     width: 950px;
-    height: 500px;
+    height: 600px;
     margin: auto;
     box-sizing: border-box;
     justify-content: center;
@@ -192,10 +192,11 @@ tr th a{
 
 #noticeContent{
     width: 930px;
-    height: 300px;
+    height: 400px;
     overflow-y: scroll;
     margin-top: 0;
     margin-bottom: 10px;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
+    background-color: whitesmoke;
 }

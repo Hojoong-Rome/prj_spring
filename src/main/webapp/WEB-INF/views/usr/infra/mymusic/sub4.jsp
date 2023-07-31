@@ -34,11 +34,6 @@
     </header>
     <div class="container">
         <div class="sub02Container">
-            <select class="form-select" aria-label="Default select example">
-                <option value="1" selected>요청</option>
-                <option value="2">업로드</option>
-                <option value="3">후기</option>
-            </select>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -58,7 +53,7 @@
 			                <tbody>
 			                    <tr>
 			                        <th><c:out value="${list.seq}"/></th>
-			                        <th><a href="#"><c:out value="${list.header }"/></a></th>
+			                        <th><a href="myMusicUploadView?seq=<c:out value='${list.seq }'/>"><c:out value="${list.header }"/></a></th>
 			                        <th><c:out value="${list.writer }"/></th>
 			                        <th><c:out value="${list.date }"/></th>
 			                        <th><c:out value="${list.number }"/></th>
@@ -69,17 +64,23 @@
                 </c:choose>
             </table>
             <c:if test="${vo.startPage gt vo.pageNumToShow}">
-                      <li>
-                        <button
-                          class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple"
-                        >
-                          <a class="page-link" href="javascript:goList(${vo.startPage - 1})">
-                          1
-                         </a>
-                        </button>
-                      </li>
+					  <ul class="pagination">
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					      </a>
+					    </li>
+					    <li class="page-item"><a class="page-link" href="javascript:goList(${vo.startPage - 1})">1</a></li>
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					      </a>
+					    </li>
+					  </ul>
+					  <a class="page-link" href="javascript:goList(${i.index})">${i.index}</a>
                       </c:if>
-                      <c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
+                      <ul class="pagination">
+                      	<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 							<c:choose>
 								<c:when test="${i.index eq vo.thisPage}">
 						                <li class="page-item active"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
@@ -88,11 +89,12 @@
 						                <li class="page-item"><a class="page-link" href="javascript:goList(${i.index})">${i.index}</a></li>
 								</c:otherwise>
 							</c:choose>
-						</c:forEach>                
+						</c:forEach>     
 						<c:if test="${vo.endPage ne vo.totalPages}">                
 						                <li class="page-item"><a class="page-link" href="javascript:goList(${vo.endPage + 1})"><i class="fa-solid fa-angle-right"></i></a></li>
-						</c:if>
-             <form name="formList" method="get" class="flex justify-content-center align-items-center"><!-- post-get 간 변경 가능 -->
+						</c:if>   
+					  </ul>        
+             <form name="formList" method="get"><!-- post-get 간 변경 가능 -->
 	            <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 		          <!-- 
@@ -104,9 +106,11 @@
 		             <label class="form-label"></label>
 		             <input type="text" class="form-control" id="searchForm" aria-describedby="searchForm" name="shKeyword" placeholder="search" value="<c:out value="${vo. shKeyword }"/>" >
 		          </div>
-		          <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+		          <div class="d-flex p-2 justify-content-sm-between">
+		          	<button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+				  	<button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button>
+				  </div>
 		       </form>
-            <a href="mymusicNoticeInsertPage"><button type="button" class="btn btn-primary" id="writeBtn">글쓰기</button></a>
         </div>
     </div>
     <div class="mypage">
@@ -161,7 +165,11 @@
 	        
 	     });
 	     
-	     
+	    $("#writeBtn").on("click", function(){
+	    	window.location.href="/mymusicNoticeInsertPage";
+	     });
+	    
+	    
 	     goList = function(thisPage) {
 	 		$("input:hidden[name=thisPage]").val(thisPage);
 	 		$("form[name=formList]").attr("action", "/myMusicUploadList").submit();

@@ -46,8 +46,7 @@
 	    FROM
 	    	requestNotice
 	    WHERE
-	    	header  = #{header}
-	    	AND seq = #{seq}
+	    	seq = #{seq}
     </select>
     
     <update id="update">

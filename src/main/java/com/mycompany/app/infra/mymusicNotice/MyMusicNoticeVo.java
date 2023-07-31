@@ -15,7 +15,7 @@ public class MyMusicNoticeVo {
 	
 	private int thisPage = 1;
 	
-	private int rowNumToShow = 10;
+	private int rowNumToShow = 8;
 	private int pageNumToShow = 5;
 	
 	private int totalRows;

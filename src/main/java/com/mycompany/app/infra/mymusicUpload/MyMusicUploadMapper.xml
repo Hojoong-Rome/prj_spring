@@ -49,8 +49,7 @@
 	    	<include refid="abc"></include>
 	    FROM
 	    	uploadNotice
-	    WHERE
-	    	header  = #{header}
+	    WHERE 1=1
 	    	AND seq = #{seq}
     </select>
     

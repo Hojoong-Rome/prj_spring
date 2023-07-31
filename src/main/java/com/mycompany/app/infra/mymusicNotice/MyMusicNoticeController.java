@@ -49,6 +49,15 @@ public class MyMusicNoticeController {
 		return "usr/infra/mymusic/sub2";
 	}
 	
+	@RequestMapping("/myMusicNoticeView")
+	public String myMusicNoticeView(MyMusicNoticeVo vo, Model model) {
+								//HttpServletRequest httpServletRequest, 
+		
+		model.addAttribute("item", service.selectOne(vo));
+		
+		return "usr/infra/mymusic/sub5";
+	}
+	
 	@RequestMapping("/myMusicNoticeUpdt")
 	public String myMusicUpdt(MyMusicNotice dto) {
 		service.update(dto);
